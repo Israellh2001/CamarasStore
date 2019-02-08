@@ -1,0 +1,73 @@
+*{
+	box-sizing: border-box;
+}
+
+body{
+	height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+	color: #fff;
+	text-align: center;
+}
+.compra__container{
+	background-color: #EFEFEF;
+	width: 95%;
+}
+.compra__form{
+	background: #EFEFEF;
+	display: flex;
+	padding: .5rem 2rem 2rem;
+	text-align: center;
+}
+.titulo{
+	background-color: deepskyblue;
+	color: #fff;
+	padding: 20px;
+	text-align: center;
+	font-weight: 100;
+	font-size: 30px;
+}
+.input-container{
+	padding: 10px 30px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+input[type=text], [type=password], [type=email]{
+	margin: .4rem 0;
+	padding: .5rem;
+	border: none;
+	border-bottom: solid 0.2rem #C8C8C8;
+	background: #EFEFEF;
+	transition: all .4s
+}
+input[type=text]:focus, [type=password]:focus, [type=email]:focus {
+	outline: none;
+	border-bottom: solid 0.2rem #E67E22;
+	
+}
+select{ 	
+	margin: auto;
+	margin-top: 22px;
+}
+.input-48{
+	width: 48%;
+}
+.input-100{
+	width: 100%;
+}
+.btn__submit{
+	/*background-color: crimson;
+	color: #fff;
+	margin: auto;
+	padding: 10px 40px;*/
+	border: none;
+	margin: auto;
+	padding: 10px 40px;
+	background-color: #F39B53;
+	color: white;
+
+}
