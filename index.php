@@ -24,10 +24,10 @@
       //Create database for all, tables, users, provedores, productos, empleados.
       //Connection
       $server = "localhost";
-      $user = "user";
-      $pass = "pass";
+      $user = "root";
+      $pass = "";
       $db = "db";
-      $conn = mysqli_connect($server, $user, $pass, $db);
+      $conn = mysqli_connect($server, $user, $pass);
       if (!$conn) {
         die("Can't connect");
       }
