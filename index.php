@@ -16,7 +16,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
+        <title>Home</title>
     </head>
     <body>
 
@@ -55,9 +55,9 @@
           <center><h3>Dedos tienda</h3></center>
 
           <form class="form-inline">
-              <a href="">Sing in</a>
+              <a href="registrate.html">Sing in</a>
               <a href="">/</a>
-              <a href="" style="margin-right: 0.5em">Log in</a>
+              <a href="login.html" style="margin-right: 0.5em">Log in</a>
 
               <input class="form-control mr-sm-2" type="search" placeholder="Camaras, lentes, tripies" aria-label="Search">
               <a href=""><i class="fas fa-search"></i></a>
@@ -68,7 +68,7 @@
         <!-- Navigation -->
         <ul class="nav nav-tabs justify-content-center" style="margin-top: 1em">
             <li class="nav-item">
-              <a class="nav-link active" href="#">Inicio</a>
+              <a class="nav-link active" href="index.html">Inicio</a>
             </li>
              <li class="nav-item dropdown">
             </div>
