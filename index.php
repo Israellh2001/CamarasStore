@@ -39,8 +39,8 @@
         <!-- Navigation -->
         <ul class="nav nav-tabs justify-content-center" style="margin-top: 1em">
             <li class="nav-item">
-              <a class="nav-link active" href="#">Inicio</a> 
-            </li>  
+              <a class="nav-link active" href="#">Inicio</a>
+            </li>
              <li class="nav-item dropdown">
             </div>
               <li class="nav-item dropdown">
@@ -61,7 +61,7 @@
             </div>
           </li>
         </ul>
-                 
+
         <!-- Body -->
 
         <!-- Slider -->
@@ -171,35 +171,35 @@
 
             <div class="container">
               <div class="row">
-                <font size="5px", color="white">Información</font> 
+                <font size="5px", color="white">Información</font>
                 </div>
-                
+
                 <div class="row">
-                  <font size="4px"> <a href="nosotros.html">Nosotros</a></font> 
+                  <font size="4px"> <a href="nosotros.html">Nosotros</a></font>
                 </div>
-                
+
                 <div class="row">
-                    <font size="4px"> <a href="politicas.html">Politicas</a></font> 
+                    <font size="4px"> <a href="politicas.html">Politicas</a></font>
                 </div>
                   <div class="row">
-                    <font size="4px"> <a href="condiciones.html">Términos y condiciones</a></font> 
-                </div>   
+                    <font size="4px"> <a href="condiciones.html">Términos y condiciones</a></font>
+                </div>
             </div>
             <div class="container">
-                
+
               <div class="col">
                 <font size="5px" color="white">Redes sociales</font>
               </div>
-              <div class="col">  
+              <div class="col">
                 <div style="font-size: 32px;">
-                  
+
                   <a href="http://www.facebook.com/"><i class="fab fa-facebook"></i></a>
                   <a href="http://www.twitter.com/"><i class="fab fa-twitter-square" size="500"></i></a>
                   <a href="https://mail.google.com"><i class="fab fa-google"></i></a>
                 </div>
                 <br/>
               </div>
-            </div> 
+            </div>
           </footer>
 
 
@@ -215,5 +215,8 @@
             }
           });
         </script>
+        <<?php
+        echo "Hi";
+         ?>
     </body>
 </html>
