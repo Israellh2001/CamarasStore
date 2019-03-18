@@ -34,7 +34,7 @@
       //SQL commands
       $dbCreate = "Create database if not exists db";
       $tableUsers = "Create table if not exists Users(Id int, Name varchar(40), Pass varchar (25), primary key (Id));";
-      $empleadosTable = "Create table Empleados";
+      $empleadosTable = "Create table Empleados (Id int, primary key (Id), Name varchar (25), Dir varchar (25), Tel int, Mail varchar (25), Sex varchar (25), Nacimiento varchar(40), Turn varchar (25), Salary double, Ingreso varchar (40), Charge varchar (25))";
       $products = "Create table Productos";
       $prov = "Create table if not exists Prov (Id int, primary key (Id), Name varchar(25), Dir varchar (25), Tel int, Mail varchar(25), Empresa varchar(20), Brand varchar(20), Type varchar(20), Date varchar(10));";
       //Create database
@@ -43,6 +43,7 @@
       mysqli_select_db($conn, $db);
       mysqli_query($conn, $tableUsers);
       mysqli_query($conn, $prov);
+      mysqli_query($conn, $empleadosTable);
 
       //Create tables
 
