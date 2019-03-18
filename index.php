@@ -19,6 +19,22 @@
         <title>Document</title>
     </head>
     <body>
+
+      <?php
+      //Create database for all, tables, users, provedores, productos, empleados.
+      //Connection
+      $server = "localhost";
+      $user = "root";
+      $pass = "";
+      $db = "db";
+      $conn = mysqli_connect($server, $user, $pass);
+      if (!$conn) {
+        die("Can't connect");
+      }
+      $createQuery = "Create database if not exists db";
+      $query = mysqli_query($conn, $createQuery);
+      //Update the connection
+       ?>
         <!-- Header -->
         <nav class="navbar navbar-light bg-light" style="padding: 1em">
           <a class="navbar-brand">Encuentranos <i class="fas fa-map-marker-alt"></i></a>
@@ -215,8 +231,5 @@
             }
           });
         </script>
-        <<?php
-        echo "Hi";
-         ?>
     </body>
 </html>
