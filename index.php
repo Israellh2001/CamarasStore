@@ -33,14 +33,14 @@
       }
       //SQL commands
       $dbCreate = "Create database if not exists db";
-      $tableUsers = "Create table if not exists Users(Name varchar(40), Pass varchar (25));";
+      $tableUsers = "Create table if not exists Users(Id int, Name varchar(40), Pass varchar (25), primary key (Id));";
       $empleadosTable = "Create table Empleados";
       $products = "Create table Productos";
-      $prov = "Create table if not exists Prov (Name varchar(25), Dir varchar (25), Tel int, Mail varchar(25), Empresa varchar(20), Brand varchar(20), Type varchar(20), Date varchar(10));";
+      $prov = "Create table if not exists Prov (Id int, primary key (Id), Name varchar(25), Dir varchar (25), Tel int, Mail varchar(25), Empresa varchar(20), Brand varchar(20), Type varchar(20), Date varchar(10));";
       //Create database
       $query = mysqli_query($conn, $dbCreate);
       //Update the connection
-      mysqli_select_db($conn, "db");
+      mysqli_select_db($conn, $db);
       mysqli_query($conn, $tableUsers);
       mysqli_query($conn, $prov);
 
