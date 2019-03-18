@@ -21,7 +21,7 @@
     <body>
 
       <?php
-      //Create database for all, tables, users, provedores, productos, empleados.
+      //TODO: Create database for all, tables, users, provedores, productos, empleados.
       //Connection
       $server = "localhost";
       $user = "root";
@@ -31,8 +31,19 @@
       if (!$conn) {
         die("Can't connect");
       }
-      $createQuery = "Create database if not exists db";
-      $query = mysqli_query($conn, $createQuery);
+      //SQL commands
+      $dbCreate = "Create database if not exists db";
+      $tableUsers = "Create table if not exists Users";
+      $empleadosTable = "Create table if not exists Empleados";
+      $products = "Create table if not exists Productos";
+      $prov = "Create table if not exists Prov";
+      //Create database
+      $query = mysqli_query($conn, $dbCreate);
+      //Reconnect
+      $conn = mysqli_connect($server, $user, $pass, $db);
+      $query = mysqli_query($conn, $dbCreate);
+      $query = mysqli_query($conn, $dbCreate);
+      $query = mysqli_query($conn, $dbCreate);
       //Update the connection
        ?>
         <!-- Header -->
