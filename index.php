@@ -31,6 +31,9 @@
       if (!$conn) {
         die("Can't connect");
       }
+      $createQuery = "Create database if not exists db";
+      $query = mysqli_query($conn, $createQuery);
+      //Update the connection
        ?>
         <!-- Header -->
         <nav class="navbar navbar-light bg-light" style="padding: 1em">
