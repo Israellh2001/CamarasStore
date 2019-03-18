@@ -39,12 +39,13 @@
       $prov = "Create table if not exists Prov";
       //Create database
       $query = mysqli_query($conn, $dbCreate);
-      //Reconnect
-      $conn = mysqli_connect($server, $user, $pass, $db);
-      $query = mysqli_query($conn, $dbCreate);
-      $query = mysqli_query($conn, $dbCreate);
-      $query = mysqli_query($conn, $dbCreate);
       //Update the connection
+      $conn = mysqli_connect($server, $user, $pass, $db);
+      //Create tables
+      $query = mysqli_query($conn, $tableUsers);
+      $query = mysqli_query($conn, $empleadosTable);
+      $query = mysqli_query($conn, $products);
+      $query = mysqli_query($conn, $prov);
        ?>
         <!-- Header -->
         <nav class="navbar navbar-light bg-light" style="padding: 1em">
