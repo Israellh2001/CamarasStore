@@ -1,0 +1,51 @@
+<br><br>
+<footer class="bg-black small text-center text-white-50">
+
+        <div class="container">
+          <div class="row">
+            <font size="5px", color="white">Información</font>
+            </div>
+
+            <div class="row">
+              <font size="4px"> <a href="/about">Nosotros</a></font>
+            </div>
+
+            <div class="row">
+                <font size="4px"> <a href="/politics">Politicas</a></font>
+            </div>
+              <div class="row">
+                <font size="4px"> <a href="/terms">Términos y condiciones</a></font>
+            </div>
+        </div>
+        <div class="container">
+
+          <div class="col">
+            <font size="5px" color="white">Redes sociales</font>
+          </div>
+          <div class="col">
+            <div style="font-size: 32px;">
+
+              <a href="http://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+              <a href="http://www.twitter.com/"><i class="fab fa-twitter-square" size="500"></i></a>
+              <a href="https://mail.google.com"><i class="fab fa-google"></i></a>
+            </div>
+            <br/>
+          </div>
+        </div>
+      </footer>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script>
+      $(document).ready(function() {
+        $('.carousel').carousel({interval: 7000});
+
+        if($("body").height() < $(window).height()){
+          $("footer").css({"position":"absolute","border": "0px"});
+        }
+      });
+    </script>
+</body>
+</html>

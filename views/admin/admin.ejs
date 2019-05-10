@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <!-- Bootstrap core CSS -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom fonts for this template -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-grayscale/5.0.4/css/grayscale.min.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="styles.css">
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- Header -->
+        <nav class="navbar navbar-light bg-light" style="padding: 1em">
+
+
+          <div class="nav-brand"> <h3>Dedos tienda <i class="fas fa-store"></i> </h3>  </div>
+
+          <form class="form-inline">
+              <div style="margin: 0 1em 0 0em">
+                <a href="">Admin
+                    <i class="fas fa-user fa-lg"></i>
+                </a>
+              </div>
+
+              <input class="form-control mr-sm-2" type="search" placeholder="Camaras, lentes, tripies" aria-label="Search">
+              <a href=""><i class="fas fa-search"></i></a>
+          </form>
+
+      </nav>
+
+        <!-- Navigation -->
+        <ul class="nav nav-tabs justify-content-center" style="margin-top: 1em">
+          <li class="nav-item">
+              <a class="nav-link" href="/">Inicio</a>
+            </li>
+             <li class="nav-item dropdown">
+            </div>
+              <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Productos</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Camaras</a>
+              <a class="dropdown-item" href="#">Lentes</a>
+              <a class="dropdown-item" href="#">Tripies</a>
+              <a class="dropdown-item" href="#">Accesorios</a>
+              <a class="dropdown-item" href="#">Flashes</a>
+              <a class="dropdown-item" href="#">Fotografias</a>
+            </div>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Ofertas</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Camaras</a>
+              <a class="dropdown-item" href="#">Lentes</a>
+            </div>
+          </li>
+            <li class="nav-item">
+                    <a class="nav-link active" href="/admin">Administrador</a>
+            </li>
+        </ul>
+        <!-- Body -->
+        <div class="container">
+            <div class="row" style="margin-top: 3.5em;">
+                <div class="col-xl-3 col-sm-6 mb-3">
+                    <div class="card text-white bg-info o-hidden h-100">
+                        <div class="card-body">
+                            <div style="margin-bottom: 0.25em;">
+                                <i class="fas fa-users fa-lg"></i>
+                            </div>
+                            <div class="mr-5">Empleados</div>
+                        </div>
+                        <a class="card-footer text-white clearfix small z-1" href="/admin/employees">
+                            <span class="float-left">Editar</span>
+                            <span class="float-right">
+                                <i class="fas fa-angle-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 mb-3">
+                    <div class="card text-white bg-primary o-hidden h-100">
+                        <div class="card-body">
+                            <div style="margin-bottom: 0.25em;">
+                                <i class="fas fa-box fa-lg"></i>
+                            </div>
+                            <div class="mr-5">Productos</div>
+                        </div>
+                        <a class="card-footer text-white clearfix small z-1" href="/admin/products">
+                            <span class="float-left">Editar</span>
+                            <span class="float-right">
+                                <i class="fas fa-angle-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 mb-3">
+                    <div class="card text-white bg-secondary o-hidden h-100">
+                        <div class="card-body">
+                                <div style="margin-bottom: 0.25em;">
+                                    <i class="fas fa-boxes fa-lg"></i>
+                                </div>
+                            <div class="mr-5">Proveedores</div>
+                        </div>
+                        <a class="card-footer text-white clearfix small z-1" href="/admin/providers">
+                            <span class="float-left">Editar</span>
+                            <span class="float-right">
+                                <i class="fas fa-angle-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 mb-3">
+                    <div class="card text-white bg-dark o-hidden h-100">
+                        <div class="card-body">
+                            <div style="margin-bottom: 0.25em;">
+                                <i class="fas fa-user-circle fa-lg"></i>
+                            </div>
+                            <div class="mr-5">Usuarios</div>
+                        </div>
+                        <a class="card-footer text-white clearfix small z-1" href="/admin/users">
+                            <span class="float-left">Editar</span>
+                            <span class="float-right">
+                                <i class="fas fa-angle-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-3 col-sm-6 mb-3">
+                    <div class="card text-white bg-info o-hidden h-100">
+                        <div class="card-body">
+                            <div style="margin-bottom: 0.25em;">
+                                <i class="fas fa-male fa-lg"></i>
+                                <i class="fas fa-female fa-lg"></i>
+                            </div>
+                            <div class="mr-5">Clientes</div>
+                        </div>
+                        <a class="card-footer text-white clearfix small z-1" href="/admin/clients">
+                            <span class="float-left">Editar</span>
+                            <span class="float-right">
+                                <i class="fas fa-angle-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+<% include ../partials/footer.ejs %>

@@ -1,0 +1,24 @@
+html {
+    min-height: 100%;
+    position: relative;
+  }
+  body {
+    margin: 0;
+  }
+  footer {
+    margin-top: 10em;
+    background-color: black;
+    width: 100%;
+    height: 300px;
+    color: white;
+  }
+
+img{
+  max-height: 20em ;
+}
+#carouselExampleIndicators{
+  margin: 1.5em 0em 10em 0em;
+}
+#cat .card{
+  border: none;
+}
