@@ -13,7 +13,9 @@ const admin = (req, res) =>
 
 const about = (req, res) =>
 {
-  res.render('about',{})
+  res.render('about',{
+    row: null
+  })
 }
 
 const login = (req, res) =>
@@ -28,12 +30,16 @@ const signin = (req, res) =>
 
 const terms = (req, res) =>
 {
-  res.render('terms',{})
+  res.render('terms',{
+    row: null
+  })
 }
 
 const politics = (req, res) =>
 {
-  res.render('politics',{})
+  res.render('politics',{
+    row: null
+  })
 }
 
 const clients = (req, res) =>
