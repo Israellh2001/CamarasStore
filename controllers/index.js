@@ -1,7 +1,8 @@
 const index = (req, res) =>
 {
   res.render('index',{
-    title: "D2 Store"
+    title: "D2 Store",
+    row: null
   })
 }
 
