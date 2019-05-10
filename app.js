@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 
 const app = express()
 
-mongoose.connect('mongodb://localhost/d2store', { useNewUrlParser: true})
+mongoose.connect('mongodb://root:MfuZZZBLXShFyu2@ds059672.mlab.com:59672/camrasstore', { useNewUrlParser: true})
   .then(db => console.log('db connected'))
   .catch(err => console.log(err));
 
