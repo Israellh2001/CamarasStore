@@ -12,7 +12,6 @@ const usuarioControllers = require('../controllers/database/usuarios');
 router.get('/api/cliente/:name/:pass', clienteControllers.getCliente)
 router.get('/clients', clienteControllers.getClientes)
 router.post('/cliente', clienteControllers.postCliente)
-router.post('/login', clienteControllers.Login)
 router.get('/cliente/delete/:id', clienteControllers.Delete)
 
 router.get('/api/empleado/:id', empleadoControllers.getEmpleado)
@@ -34,6 +33,7 @@ router.get('/api/usuario/:id', usuarioControllers.getUsuario)
 router.get('/users', usuarioControllers.getUsuarios)
 router.post('/usuario', usuarioControllers.postUsuario)
 router.get('/usuario/delete/:id', usuarioControllers.Delete)
+router.get('/api/login/:name/:pass', usuarioControllers.Login)
 
 
 module.exports = router

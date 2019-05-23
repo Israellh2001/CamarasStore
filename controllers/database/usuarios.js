@@ -36,9 +36,27 @@ const Delete = async(req, res) => {
     })
 }
 
+const Login = async (req, res) => {
+  var name = req.params.name
+  var pass = req.params.pass
+
+  usuario.findOne({Nombre: name, Contraseña: pass}, (err, row) => {
+      if (row) {
+          res.status(200).json({
+            success: true
+          })
+      }else {
+        res.status(500).json({
+          success: false
+        })
+      }
+  })
+}
+
 module.exports = {
   getUsuario: getUsuario,
   getUsuarios: getUsuarios,
   postUsuario: postUsuario,
-  Delete: Delete
+  Delete: Delete,
+  Login: Login
 }

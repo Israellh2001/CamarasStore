@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <!-- Bootstrap core CSS -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom fonts for this template -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -10,7 +11,7 @@
         <!-- Custom styles for this template -->
         <link href="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-grayscale/5.0.4/css/grayscale.min.css" rel="stylesheet">
 
-        <link rel="stylesheet" href="styles.css">
+        <!-- <link rel="stylesheet" href="styles.css"> -->
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,22 +24,24 @@
           <a class="navbar-brand">Encuentranos <i class="fas fa-map-marker-alt"></i></a>
 
           <center><h3>Dedos tienda</h3></center>
-
           <form class="form-inline">
-            <% if (row) {%>
-              Bienvenido, <%= row.Nombre %>
-            <% } else { %>
-              <a href="/signin">Sing in</a>
-              <a href="">/</a>
-              <a href="/login">Log in</a>
-              <% } %>
+              <div id="tag">
+                  
+              </div>
 
-              <input style="margin-left: 0.5em" class="form-control mr-sm-2" type="search" placeholder="Camaras, lentes, tripies" aria-label="Search">
-              <a href=""><i class="fas fa-search"></i></a>
-          </form>
+              <script>
+                if(localStorage.getItem('user') != null)
+                  document.getElementById('tag').innerHTML = '<div class="dropdown"><a class="dropdown-toggle" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Israel <i class="fas fa-user fa-2x"></i></a><div class="dropdown-menu" aria-labelledby="dropdownUser"><a class="dropdown-item" href="#">Ver perfil</a><a class="dropdown-item" href="#">Editar Perfil</a><a class="dropdown-item" onclick="logout()">Cerrar sesion</a></div></div>'
+                else
+                  document.getElementById('tag').innerHTML = '<a href="/signin">Sing in</a><a href="">/</a><a href="/login">Log in</a>'
 
+              </script>
+
+                <input style="margin-left: 0.5em" class="form-control mr-sm-2" type="search" placeholder="Camaras, lentes, tripies" aria-label="Search">
+                <a href=""><i class="fas fa-search"></i></a>
+            </form> 
         </nav>
-
+            
         <!-- Navigation -->
         <ul class="nav nav-tabs justify-content-center" style="margin-top: 1em">
             <li class="nav-item">
@@ -64,3 +67,9 @@
             </div>
           </li>
         </ul>
+<script>
+  function logout(){
+    localStorage.clear()
+    location.href = "/"
+  }
+</script>

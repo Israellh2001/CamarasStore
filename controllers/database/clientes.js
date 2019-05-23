@@ -30,15 +30,6 @@ const postCliente = async(req, res) => {
     res.redirect('/admin/cliente')
   })
 }
-
-const Login = async(req, res) => {
-    cliente.create(req.body, (err, rows) => {
-      if(err)
-        console.log("Ocurrio un error");
-      res.redirect('/login')
-    })
-}
-
 const Delete = async(req, res) => {
     let { id } = req.params.id;
     cliente.findOneAndDelete(id, (err) => {
@@ -55,6 +46,5 @@ module.exports = {
   getCliente: getCliente,
   getClientes: getClientes,
   postCliente: postCliente,
-  Login: Login,
   Delete: Delete
 }
