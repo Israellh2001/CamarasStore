@@ -31,7 +31,7 @@
 
               <script>
                 if(localStorage.getItem('user') != null)
-                  document.getElementById('tag').innerHTML = '<div class="dropdown"><a class="dropdown-toggle" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Israel <i class="fas fa-user fa-2x"></i></a><div class="dropdown-menu" aria-labelledby="dropdownUser"><a class="dropdown-item" href="#">Ver perfil</a><a class="dropdown-item" href="#">Editar Perfil</a><a class="dropdown-item" onclick="logout()">Cerrar sesion</a></div></div>'
+                  document.getElementById('tag').innerHTML = '<div class="dropdown"><a class="dropdown-toggle" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-2x"></i></a><div class="dropdown-menu" aria-labelledby="dropdownUser"><a class="dropdown-item" href="#">Ver perfil</a><a class="dropdown-item" href="#">Editar Perfil</a><a class="dropdown-item" onclick="logout()">Cerrar sesion</a></div></div>'
                 else
                   document.getElementById('tag').innerHTML = '<a href="/signin">Sing in</a><a href="">/</a><a href="/login">Log in</a>'
 
