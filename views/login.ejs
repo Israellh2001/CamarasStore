@@ -42,6 +42,8 @@
             var res
 
             if (Nombre === "admin" && Contraseña === "1234" || Nombre === "admin2" && Contraseña === "1234") {
+              localStorage.setItem('user', Nombre)
+              localStorage.setItem('pass', Contraseña)
               location.href = "/admin"
             }
             else {
