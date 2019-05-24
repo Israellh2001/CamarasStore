@@ -18,6 +18,8 @@ router.get('/api/empleado/:id', empleadoControllers.getEmpleado)
 router.get('/employees', empleadoControllers.getEmpleados)
 router.post('/empleado', empleadoControllers.postEmpleado)
 router.get('/empleado/delete/:id', empleadoControllers.Delete)
+router.post('/empleado/update', empleadoControllers.updateEmpleado)
+
 
 router.get('/api/prducto/:id', productoControllers.getProducto)
 router.get('/products', productoControllers.getProductos)

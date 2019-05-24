@@ -35,9 +35,25 @@ const Delete = async(req, res) => {
     })
 }
 
+const update = (req, res) => {
+  let id = req.body._id
+  let body = req.body
+
+  empleado.findOneAndUpdate(id, body , {new: true}, (err) => {
+      if(err)
+        console.log(err)
+      else
+        res.json({
+          success: true
+        })
+    }
+  )
+}
+
 module.exports = {
   getEmpleado: getEmpleado,
   getEmpleados: getEmpleados,
   postEmpleado: postEmpleado,
-  Delete: Delete
+  Delete: Delete,
+  updateEmpleado: update
 }

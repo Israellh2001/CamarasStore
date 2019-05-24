@@ -1,6 +1,6 @@
 <% include ../partials/header.ejs %>
 <script>
-    if(localStorage.getItem('user') != "admin" || localStorage.getItem('user') != "admin1")
+    if(localStorage.getItem('user') =! "admin" || localStorage.getItem('user') =! "admin1")
       location.href = "/login"
   </script> 
         <!-- Body -->
@@ -29,11 +29,14 @@
                   </table>
                 </div>
                 <div class="col card" style="margin-left: 1.5em; padding-bottom: 2em; padding-top: 1em;">
-                    <form action="/admin/empleado" method="post">
+                    <form action="/admin/empleado" class="needs-validation" method="post">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="Nombre">Nombre</label>
-                                <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="Nombre">
+                                <input type="text" class="form-control" id="Nombre" name="Nombre" place holder="Nombre">
+                                <div class="valid-feedback">
+                                  Looks good!
+                                </div>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="Email">Email</label>
@@ -47,7 +50,8 @@
                         <div class="form-group">
                             <label for="Telefono">Telefono</label>
                             <input type="text" class="form-control" id="Telefono" placeholder="(449) 123 1234" name="Telefono">
-
+                        </div>
+                        <div>
                             <label for="Turno">Turno</label>
                             <select id="Turno" class="form-control" name="Turno">
                                 <option selected>Choose...</option>
@@ -84,7 +88,8 @@
                         </div>
 
                         <center>
-                            <button type="submit" class="btn btn-primary">Editar/Agregar</button>
+                            <button type="button" class="btn btn-primary" onclick="agregar()">Agregar</button>
+                            <button type="button" class="btn btn-primary" onclick="editar()">Editar</button>
                             <button type="button" class="btn btn-danger" onclick="eliminar()">Eliminar</button>
                         </center>
                     </form>
@@ -101,9 +106,19 @@
         var eliminar = function(){
           location.href = "/admin/empleado/delete/" + id
         }
+        var editar = function(){
+          var xhttp = new XMLHttpRequest()
+              xhttp.open("POST", "/admin/empleado/update", true);
+              xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+              xhttp.send("_id="+ id +"&Nombre="+ document.getElementById("Nombre").value +"&Email="+ document.getElementById("Email").value+"&Direccion="+ document.getElementById("Direccion").value +"&Telefono="+document.getElementById("Telefono").value+"&Turno="+ document.getElementById("Turno").value +"&Fecha_Ingreso="+ document.getElementById("Fecha_Ingreso").value +"&Fecha_Nacimiento="+ document.getElementById("Fecha_Nacimiento").value +"&Cargo_Area="+ document.getElementById("Cargo_Area").value +"&Sueldo="+ document.getElementById("Sueldo").value +"&Sexo="+ document.getElementById("Sexo").value );
+              xhttp.abort()
+
+              location.href = "/admin/employees"
+              
+        }
 
           var selectCliente = function(User){
-            var id = User._id
+            id = User._id
             document.getElementById("Nombre").value = User.Nombre
             document.getElementById("Email").value = User.Email
             document.getElementById("Direccion").value = User.Direccion
@@ -114,6 +129,38 @@
             document.getElementById("Cargo_Area").value = User.Cargo_Area
             document.getElementById("Sueldo").value = User.Sueldo
             document.getElementById("Sexo").value = User.Sexo
+          }
+
+          var isValid = []
+
+          bootstrapValidate("#Nombre", 'alpha:Solo puedes usar letras', function(valid){isValid[0] = valid})
+          bootstrapValidate("#Email", 'email:Ingresa un email valido',  function(valid){isValid[1] = valid})
+          bootstrapValidate("#Telefono", 'integer:Solo numeros',  function(valid){isValid[2] = valid})
+          bootstrapValidate("#Telefono", 'max:10:Maximo 10 digitos',  function(valid){isValid[3] = valid})
+          bootstrapValidate("#Turno", 'required:Te falto este',  function(valid){isValid[4] = valid})
+          bootstrapValidate("#Fecha_Ingreso", 'required:Te falto este',  function(valid){isValid[5] = valid})
+          bootstrapValidate("#Cargo_Area", 'required:Te falto este',  function(valid){isValid[6] = valid})
+          bootstrapValidate("#Sueldo", 'required:Te falto este',  function(valid){isValid[7] = valid})
+          bootstrapValidate("#Sexo", 'required:Te falto este',  function(valid){isValid[8] = valid})
+          bootstrapValidate("#Direccion", 'required:Te falto este',  function(valid){isValid[9] = valid})
+
+          function agregar(){
+            if(isValid[0] && isValid[1] && isValid[2] && isValid[3] && isValid[4] && isValid[5] && isValid[6] && isValid[7] && isValid[8] && isValid[9])
+            {
+              var xhttp = new XMLHttpRequest()
+              xhttp.open("POST", "/admin/empleado", true);
+              xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+              xhttp.send("Nombre="+ document.getElementById("Nombre").value +"&Email="+ document.getElementById("Email").value+"&Direccion="+ document.getElementById("Direccion").value +"&Telefono="+document.getElementById("Telefono").value+"&Turno="+ document.getElementById("Turno").value +"&Fecha_Ingreso="+ document.getElementById("Fecha_Ingreso").value +"&Fecha_Nacimiento="+ document.getElementById("Fecha_Nacimiento").value +"&Cargo_Area="+ document.getElementById("Cargo_Area").value +"&Sueldo="+ document.getElementById("Sueldo").value +"&Sexo="+ document.getElementById("Sexo").value );
+              xhttp.abort()
+
+              location.href = "/admin/employees"
+            }
+            else
+            Toast.fire({
+                  type: 'error',
+                  title: 'Todos los campos deben estar correctos o el usuario ya existe'
+                })
+
           }
         </script>
         <!-- Footer -->

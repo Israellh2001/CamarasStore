@@ -26,8 +26,8 @@ const getClientes = async (req, res) =>
 const postCliente = async(req, res) => {
   cliente.create(req.body, (err, rows) => {
     if(err)
-    console.log("Ocurrio un error");
-    res.redirect('/admin/cliente')
+      console.log("Ocurrio un error");
+    res.redirect('/admin/clients')
   })
 }
 const Delete = async(req, res) => {
