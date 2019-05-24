@@ -32,7 +32,7 @@
             var Contraseña = document.getElementById("Contraseña").value 
             var res
 
-            if (Nombre === "admin" && Contraseña === "1234" || Nombre === "admin2" && Contraseña === "1234") {
+            if (Nombre == "admin" && Contraseña == "1234" || Nombre == "admin2" && Contraseña == "1234") {
               localStorage.setItem('user', "admin")
               localStorage.setItem('pass',  "1234")
               location.href = "/admin"
