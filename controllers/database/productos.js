@@ -25,8 +25,8 @@ const postProducto = async(req, res) => {
 }
 
 const Delete = async(req, res) => {
-    let { id } = req.params.id;
-    producto.findOneAndDelete(id, (err) => {
+    let id  = req.params.id;
+    producto.findOneAndDelete({'_id' : id}, (err) => {
         if(!err){
           res.redirect("/admin/products")
         }
@@ -36,9 +36,25 @@ const Delete = async(req, res) => {
     })
 }
 
+const update = (req, res) => {
+  let id = req.body._id
+  let body = req.body
+
+  producto.findOneAndUpdate({'_id' : id}, body , {new: true}, (err) => {
+      if(err)
+        console.log(err)
+      else
+        res.json({
+          success: true
+        })
+    }
+  )
+}
+
 module.exports = {
   getProducto: getProducto,
   getProductos: getProductos,
   postProducto: postProducto,
-  Delete: Delete
+  Delete: Delete,
+  updateProducto: update
 }

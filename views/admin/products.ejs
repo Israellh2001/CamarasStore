@@ -66,7 +66,8 @@
                         </div>
                         </div>
                         <center>
-                        <button type="submit" class="btn btn-primary" >Editar/Agregar</button>
+                        <button type="button" class="btn btn-primary" onclick="agregar()" >Agregar</button>
+                        <button type="button" class="btn btn-primary" onclick="editar()" >Editar</button>
                         <button type="button" class="btn btn-danger" onclick="eliminar()">Eliminar</button>
                         </center>
                   </form>
@@ -76,9 +77,20 @@
         <!-- Footer -->
 
         <script type="text/javascript">
-        var id;
-        var eliminar = function(){
-          location.href = "/admin/producto/delete/" + id
+          var id;
+          var eliminar = function(){
+            location.href = "/admin/producto/delete/" + id
+          }
+
+         var editar = function(){
+           var xhttp = new XMLHttpRequest()
+              xhttp.open("POST", "/admin/producto/update", true);
+              xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+              xhttp.send("_id="+ id +"&Nombre="+ document.getElementById("Nombre").value +"&Marca="+ document.getElementById("Marca").value+"&Existencias="+ document.getElementById("Existencias").value +"&Precio_May="+document.getElementById("Precio_May").value+"&Precio_Min="+ document.getElementById("Precio_Min").value +"&Descripcion="+ document.getElementById("Descripcion").value +"&Tipo_Producto="+ document.getElementById("Tipo_Producto").value);
+              xhttp.abort()
+
+              location.href = "/admin/products"
+              
         }
 
           var selectCliente = function(User){
@@ -91,5 +103,34 @@
             document.getElementById("Descripcion").value = User.Descripcion
             document.getElementById("Tipo_Producto").value = User.Tipo_Producto
           }
+
+           var isValid = []
+
+          bootstrapValidate("#Nombre", 'required:Te falto este', function(valid){isValid[0] = valid})
+          bootstrapValidate("#Marca", 'required:Te falto este',  function(valid){isValid[1] = valid})
+          bootstrapValidate("#Existencias", 'integer:Solo numeros',  function(valid){isValid[2] = valid})
+          bootstrapValidate("#Precio_May", 'integer:Solo numeros',  function(valid){isValid[3] = valid})
+          bootstrapValidate("#Precio_Min", 'integer:Solo numeros',  function(valid){isValid[4] = valid})
+          bootstrapValidate("#Tipo_Producto", 'required:Te falto este',  function(valid){isValid[5] = valid})
+
+          function agregar(){
+            if(isValid[0] && isValid[1] && isValid[2] && isValid[3] && isValid[4] && isValid[5])
+            {
+              var xhttp = new XMLHttpRequest()
+              xhttp.open("POST", "/admin/producto", true);
+              xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+              xhttp.send("Nombre="+ document.getElementById("Nombre").value +"&Marca="+ document.getElementById("Marca").value+"&Existencias="+ document.getElementById("Existencias").value +"&Precio_May="+document.getElementById("Precio_May").value+"&Precio_Min="+ document.getElementById("Precio_Min").value +"&Descripcion="+ document.getElementById("Descripcion").value +"&Tipo_Producto="+ document.getElementById("Tipo_Producto").value);
+              xhttp.abort()
+
+              location.href = "/admin/products"
+            }
+            else
+            Toast.fire({
+                  type: 'error',
+                  title: 'Todos los campos deben estar correctos o el producto ya existe'
+                })
+
+          }
+          
         </script>
 <% include ../partials/footer.ejs %>

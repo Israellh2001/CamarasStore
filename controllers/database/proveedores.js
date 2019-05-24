@@ -24,8 +24,8 @@ const postProveedor = async(req, res) => {
 }
 
 const Delete = async(req, res) => {
-    let { id } = req.params.id;
-    proveedor.findOneAndDelete(id, (err) => {
+    let id = req.params.id;
+    proveedor.findOneAndDelete({'_id' : id}, (err) => {
         if(!err){
           res.redirect("/admin/providers")
         }
@@ -35,9 +35,25 @@ const Delete = async(req, res) => {
     })
 }
 
+const update = (req, res) => {
+  let id = req.body._id
+  let body = req.body
+
+  proveedor.findOneAndUpdate({'_id' : id}, body , {new: true}, (err) => {
+      if(err)
+        console.log(err)
+      else
+        res.json({
+          success: true
+        })
+    }
+  )
+}
+
 module.exports = {
   getProveedor: getProveedor,
   getProveedores: getProveedores,
   postProveedor: postProveedor,
-  Delete: Delete
+  Delete: Delete,
+  updateProveedor: update
 }

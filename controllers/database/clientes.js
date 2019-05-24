@@ -31,8 +31,8 @@ const postCliente = async(req, res) => {
   })
 }
 const Delete = async(req, res) => {
-    let { id } = req.params.id;
-    cliente.findOneAndDelete(id, (err) => {
+    let id  = req.params.id;
+    cliente.findOneAndDelete({'_id' : id}, (err) => {
         if(!err){
           res.redirect("/admin/clients")
         }
@@ -42,9 +42,24 @@ const Delete = async(req, res) => {
     })
 }
 
+const update = (req, res) => {
+  let id = req.body._id
+  let body = req.body
+
+  cliente.findOneAndUpdate({'_id' : id}, body , {new: true}, (err) => {
+      if(err)
+        console.log(err)
+      else
+        res.json({
+          success: true
+        })
+    }
+  )
+}
 module.exports = {
   getCliente: getCliente,
   getClientes: getClientes,
   postCliente: postCliente,
-  Delete: Delete
+  Delete: Delete,
+  updateCliente: update
 }

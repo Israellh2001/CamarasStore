@@ -25,8 +25,8 @@ const postUsuario = async(req, res) => {
 }
 
 const Delete = async(req, res) => {
-    let { id } = req.params.id;
-    usuario.findOneAndDelete(id, (err) => {
+    let  id = req.params.id;
+    usuario.findOneAndDelete({'_id' : id}, (err) => {
         if(!err){
           res.redirect("/admin/users")
         }
@@ -53,10 +53,26 @@ const Login = async (req, res) => {
   })
 }
 
+const update = (req, res) => {
+  let id = req.body._id
+  let body = req.body
+
+  usuario.findOneAndUpdate({'_id' : id}, body , {new: true}, (err) => {
+      if(err)
+        console.log(err)
+      else
+        res.json({
+          success: true
+        })
+    }
+  )
+}
+
 module.exports = {
   getUsuario: getUsuario,
   getUsuarios: getUsuarios,
   postUsuario: postUsuario,
   Delete: Delete,
-  Login: Login
+  Login: Login,
+  updateUsuario: update
 }

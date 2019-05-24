@@ -71,7 +71,8 @@
                     </div>
 
                     <center>
-                      <button type="submit" class="btn btn-primary">Editar/Agregar</button>
+                      <button type="button" class="btn btn-primary" onclick="agregar()">Agregar</button>
+                      <button type="button" class="btn btn-primary" onclick="editar()">Editar</button>
                       <button type="button" class="btn btn-danger" onclick="eliminar()">Eliminar</button>
                     </center>
                   </form>
@@ -80,9 +81,19 @@
         </div>
 
         <script type="text/javascript">
-        var id;
+        var id = null
         var eliminar = function(){
           location.href = "/admin/proveedor/delete/" + id
+        }
+        var editar = function(){
+          var xhttp = new XMLHttpRequest()
+              xhttp.open("POST", "/admin/proveedor/update", true);
+              xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+              xhttp.send("_id="+ id +"&Nombre="+ document.getElementById("Nombre").value+ "&Empresa="+ document.getElementById("Empresa").value +"&Email="+ document.getElementById("Email").value+"&Direccion="+ document.getElementById("Direccion").value +"&Telefono="+document.getElementById("Telefono").value +"&Fecha_Surte="+ document.getElementById("Fecha_Surte").value +"&Tipo_Producto="+ document.getElementById("Tipo_Producto").value +"&Marca="+ document.getElementById("Marca").value);
+              xhttp.abort()
+
+              location.href = "/admin/providers"
+              
         }
 
           var selectCliente = function(User){
@@ -95,6 +106,37 @@
             document.getElementById("Fecha_Surte").value = User.Fecha_Surte
             document.getElementById("Tipo_Producto").value = User.Tipo_Producto
             document.getElementById("Marca").value = User.Marca
+          }
+
+          var isValid = []
+
+          bootstrapValidate("#Nombre", 'alpha:Solo puedes usar letras', function(valid){isValid[0] = valid})
+          bootstrapValidate("#Email", 'email:Ingresa un email valido',  function(valid){isValid[1] = valid})
+          bootstrapValidate("#Telefono", 'integer:Solo numeros',  function(valid){isValid[2] = valid})
+          bootstrapValidate("#Telefono", 'max:10:Maximo 10 digitos',  function(valid){isValid[3] = valid})
+          bootstrapValidate("#Empresa", 'required:Te falto este',  function(valid){isValid[4] = valid})
+          bootstrapValidate("#Fecha_Surte", 'required:Te falto este',  function(valid){isValid[5] = valid})
+          bootstrapValidate("#Tipo_Producto", 'required:Te falto este',  function(valid){isValid[6] = valid})
+          bootstrapValidate("#Marca", 'required:Te falto este',  function(valid){isValid[7] = valid})
+          
+
+          function agregar(){
+            if(isValid[0] && isValid[1] && isValid[2] && isValid[3] && isValid[4] && isValid[5] && isValid[6] && isValid[7])
+            {
+              var xhttp = new XMLHttpRequest()
+              xhttp.open("POST", "/admin/proveedor", true);
+              xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+              xhttp.send("Nombre="+ document.getElementById("Nombre").value+ "&Empresa="+ document.getElementById("Empresa").value +"&Email="+ document.getElementById("Email").value+"&Direccion="+ document.getElementById("Direccion").value +"&Telefono="+document.getElementById("Telefono").value +"&Fecha_Surte="+ document.getElementById("Fecha_Surte").value +"&Tipo_Producto="+ document.getElementById("Tipo_Producto").value +"&Marca="+ document.getElementById("Marca").value);
+              xhttp.abort()
+
+              location.href = "/admin/providers"
+            }
+            else
+            Toast.fire({
+                  type: 'error',
+                  title: 'Todos los campos deben estar correctos o el usuario ya existe'
+                })
+
           }
         </script>
         <!-- Footer -->

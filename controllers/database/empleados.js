@@ -24,8 +24,8 @@ const postEmpleado = async(req, res) => {
 }
 
 const Delete = async(req, res) => {
-    let { id } = req.params.id;
-    empleado.findOneAndDelete(id, (err) => {
+    let  _id  = req.params.id;
+    empleado.findOneAndDelete({'_id' : _id}, (err) => {
         if(!err){
           res.redirect("/admin/employees")
         }
@@ -39,7 +39,7 @@ const update = (req, res) => {
   let id = req.body._id
   let body = req.body
 
-  empleado.findOneAndUpdate(id, body , {new: true}, (err) => {
+  empleado.findOneAndUpdate({'_id' : id}, body , {new: true}, (err) => {
       if(err)
         console.log(err)
       else
