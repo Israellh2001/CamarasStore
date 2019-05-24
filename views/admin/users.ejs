@@ -1,6 +1,6 @@
 <% include ../partials/header.ejs %>
 <script>
-    if(localStorage.getItem('user') =! "admin" || localStorage.getItem('user') =! "admin1" || localStorage.getItem('user'))
+    if(localStorage.getItem('user') =! "admin" || localStorage.getItem('user') =! "admin1" || localStorage.getItem('user') == null)
       location.href = "/login"
   </script> 
         <!-- Body -->
