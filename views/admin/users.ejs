@@ -1,6 +1,7 @@
 <% include ../partials/header.ejs %>
       <script>
       var user  = localStorage.getItem('user')
+      console.log(user)
        if(user === "admin" || user === "admin1")
         {location.href = "/admin"
         }
