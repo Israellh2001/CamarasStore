@@ -57,7 +57,7 @@
         <!-- Navigation -->
         <ul class="nav nav-tabs justify-content-center" style="margin-top: 1em">
             <li class="nav-item">
-              <a class="nav-link active" href="/">Inicio</a>
+              <a class="nav-link" href="/">Inicio</a>
             </li>
              <li class="nav-item dropdown">
             </div>
@@ -78,6 +78,13 @@
               <a class="dropdown-item" href="#">Lentes</a>
             </div>
           </li>
+          <div id="menuAdmin"></div>
+
+          <script>
+            if(localStorage.getItem('user') == 'admin'){
+              document.getElementById('menuAdmin').innerHTML = '<li class="nav-item"><a class="nav-link" href="/admin">Administrador</a></li>'
+            }
+          </script>
         </ul>
 <script>
   function logout(){
