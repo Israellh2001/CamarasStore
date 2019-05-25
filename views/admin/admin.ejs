@@ -1,8 +1,9 @@
 <% include ../partials/header.ejs %>
-    <script>
-        if(localStorage.getItem('user') != "admin" || localStorage.getItem('user') !=    "admin1")
-          location.href = "/login"
-      </script> 
+        <script>
+            if(localStorage.getItem('user') == 'admin'){}
+            else
+                location.href = "/"
+        </script> 
         <!-- Body -->
         <div class="container">
             <div class="row" style="margin-top: 3.5em;">
@@ -91,9 +92,5 @@
                 </div>
             </div>
         </div>
-        <script>
-        if(localStorage.getItem('user') =! "admin" || localStorage.getItem('user') =!    "admin1")
-          location.href = "/login"
-      </script> 
         <!-- Footer -->
 <% include ../partials/footer.ejs %>
