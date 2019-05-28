@@ -2,23 +2,26 @@
         <!-- Body -->
 
         <!-- Slider -->
+        <br>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
               <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             </ol>
+            <center>
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img class="d-block w-100" src="img/Ecommerce-SEO.png" alt="First slide">
+                <img class="d-block w-50" src="/img/Ecommerce-SEO.png" alt="First slide">
               </div>
               <div class="carousel-item">
-                <img class="d-block w-100" src="img/nikon.jpg" alt="Second slide">
+                <img class="d-block w-50" src="/img/nikon.jpg" alt="Second slide">
               </div>
               <div class="carousel-item">
-                <img class="d-block w-100" src="img/nikonBackground.jpg" alt="Third slide">
+                <img class="d-block w-50" src="/img/nikonBackground.jpg" alt="Third slide">
               </div>
             </div>
+            </center>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
@@ -28,37 +31,91 @@
               <span class="sr-only">Next</span>
             </a>
           </div>
+      
 
           <!-- New Products -->
+          <br><br>
           <div class="container">
             <div class="row"> <h2>Nuevos productos</h2></div>
             <br><br>
               <div class="row justify-content-around">
                   <div class=" card" style="width: 18rem;">
-                      <img class="card-img-top" src="..." alt="Card image cap">
+                  <br>
+                      <center><img class="card-img-top" style="width: 8em;" src="/img/camaraventa.jpg" alt="Card image cap"></center>
                       <div class="card-body">
-                        <h5 class="card-title">Carrito bien prron</h5>
-                        <p class="card-text">estandar, rojito y bien prron</p>
+                        <h5 class="card-title">Camara resistente</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">5,599$</h6>
+                        <p class="card-text">Camara canon resistente a golpes y caidas, exelente para niños</p>
                       </div>
-                  </div>
-                  <div class=" card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <div class="card-footer text-muted">
+                          <button class="btn btn-primary" onclick="añadir(1)">Añadir al carrito</button>
                     </div>
                   </div>
                   <div class=" card" style="width: 18rem;">
-                    <img class="card-img-top" src="..." alt="Card image cap">
+                  <br>
+                    <center><img class="card-img-top" style="width: 8em;" src="/img/impresoraventa.jpg" alt="Card image cap"></center>
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <h5 class="card-title">Impresora cannon</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">2,500$</h6>
+                      <p class="card-text">Impresora facil de usar, WIFI, util para cualquier ocacion</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                          <button class="btn btn-primary" onclick="añadir(2)">Añadir al carrito</button>
+                    </div>
+                  </div>
+                  <div class=" card" style="width: 18rem;">
+                  <br>
+                    <center><img class="card-img-top" style="width: 8em;" src="/img/tripieventa.jpg" alt="Card image cap"></center>
+                    <div class="card-body">
+                      <h5 class="card-title">Tripie economico</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">150$</h6>
+                      <p class="card-text">Tripie generico, barato, sirve para cualquier camara</p>
+                    </div>
+                    <div class="card-footer text-muted">
+                          <button class="btn btn-primary" onclick="añadir(3)">Añadir al carrito</button>
                     </div>
                   </div>
               </div>
-              <div class="row">
+              <script>
+                function añadir(i){
+                  var usuario
+                  var producto = null
+                  if (i==1){
+                    producto = {
+                      Nombre: "Camara",
+                      Marca: "Cannon",
+                      Descripcion: "Camara canon resistente a golpes y caidas, exelente para niños",
+                      Tipo_producto: "Camara",
+                      Precio: 5500
+                    }
+                  }
+                  else if (i==2){
+                    producto = {
+                      Nombre: "Impresora",
+                      Marca: "Cannon",
+                      Descripcion: "Camara canon resistente a golpes y caidas, exelente para niños",
+                      Tipo_producto: "Camara",
+                      Precio: 2500
+                    }
+                  }
+                  else if(i==3){
+                    producto = {
+                      Nombre: "Tripie",
+                      Marca: "Cannon",
+                      Descripcion: "Camara canon resistente a golpes y caidas, exelente para niños",
+                      Tipo_producto: "Camara",
+                      Precio: 150
+                    }
+                  }
 
-              </div>
+                  usuario = JSON.parse(localStorage.getItem('Usuario'))
+                  usuario.Carrio.push(producto)
+
+                  localStorage.setItem('Usuario', JSON.stringify(usuario))
+
+                  location.href = "/"
+                }
+              </script>
           </div>
         <br><br>
         <!-- Categorias de productos -->

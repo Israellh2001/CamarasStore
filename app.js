@@ -15,6 +15,8 @@ const routes = require('./routes/index')
 const Adminroutes = require('./routes/admin')
 const routes_api = require('./routes/db')
 
+app.use(express.static(path.join(__dirname, 'public')))
+
 //settings
 app.set('port', process.env.PORT || 3000)
 app.set('views', path.join(__dirname, 'views'))

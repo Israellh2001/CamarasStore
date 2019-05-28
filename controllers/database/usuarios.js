@@ -43,7 +43,7 @@ const Login = async (req, res) => {
   usuario.findOne({Nombre: name, Contraseña: pass}, (err, row) => {
       if (row) {
           res.status(200).json({
-            success: true
+            success: true, row
           })
       }else {
         res.status(500).json({
@@ -68,11 +68,23 @@ const update = (req, res) => {
   )
 }
 
+const addProducto = (req, res) => {
+  let id = req.params.id
+  let body = req.body
+
+  usuario.findOneAndUpdate({'_id': id}, {$push: { Carrito: body }}, {new: true}, (err) => {
+      if (err)
+        console.log("nel prros")
+    }
+  )
+}
+
 module.exports = {
   getUsuario: getUsuario,
   getUsuarios: getUsuarios,
   postUsuario: postUsuario,
   Delete: Delete,
   Login: Login,
-  updateUsuario: update
+  updateUsuario: update,
+  addProducto: addProducto
 }

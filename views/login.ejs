@@ -43,10 +43,12 @@
               xmlHttp.open("GET", "/admin/api/login/"+Nombre+"/"+Contraseña, false)
               xmlHttp.send(null)
               res = JSON.parse(xmlHttp.response)
+              console.log(res)
 
               if(res.success == true){
                 localStorage.setItem('user', Nombre)
-                localStorage.setItem('pass', Contraseña)
+                localStorage.setItem('pass', Contraseña),
+                localStorage.setItem('Usuario', JSON.stringify(res.row))
 
                 location.href = "/"
               }

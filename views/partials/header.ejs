@@ -40,18 +40,42 @@
               <div id="tag1"></div>
               <div id="tag" style="margin-left: 1em;"></div>
               
-              <!-- <div class="dropdown">
-                <a class="dropdown-toggle" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               <!--div class="dropdown">
+                <a class="dropdown-toggle" id="dropdownCarrito" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="fas fa-shopping-cart fa-2x"></i>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="dropdownUser">
+                <div class="dropdown-menu" aria-labelledby="dropdownCarrito">
+                <div class="card" style="width: 18rem;">
+                <div class="card-header">Carrito de compras</div>
+                  <ul class="list-group list-group-flush" id="productos">
+                    <li class="list-group-item">Camara fotografica  150$</li>
+                    <li class="list-group-item">Dapibus ac facilisis in</li>
+                    <li class="list-group-item">Vestibulum at eros</li>
+                  </ul>
+                  <div class="card-footer text-muted">
+                    <center><button class="btn btn-success">Comprar</button></center>
+                </div>
                 </div>
               </div> -->
 
               <script>
                 if(localStorage.getItem('user') != null){
+                  var total = 0
+                  var productos = ""
+                  var lista = JSON.parse(localStorage.getItem('Usuario'))
+                  
+                  for(var i = 0; i< lista.Carrio.length; i++){
+                    total = total + lista.Carrio[i].Precio
+                    productos = productos + '<li class="list-group-item">'+ lista.Carrio[i].Nombre+'  ' + lista.Carrio[i].Precio + '$</li>'
+                }
+
+                productos = productos + '<li class="list-group-item">Subtotal: '+total+'$</li>'
+
+                  
+
+
                   document.getElementById('tag').innerHTML = '<div class="dropdown"><a class="dropdown-toggle" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-2x"></i></a><div class="dropdown-menu" aria-labelledby="dropdownUser"><a class="dropdown-item" href="#">Ver perfil</a><a class="dropdown-item" href="#">Editar Perfil</a><a class="dropdown-item" onclick="logout()">Cerrar sesion</a></div></div>'
-                  document.getElementById('tag1').innerHTML = '<div class="dropdown"><a class="dropdown-toggle" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-shopping-cart fa-2x"></i></a><div class="dropdown-menu" aria-labelledby="dropdownUser"></div></div>'
+                  document.getElementById('tag1').innerHTML = '<div class="dropdown"><a class="dropdown-toggle" id="dropdownCarrito" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-shopping-cart fa-2x"></i></a><div class="dropdown-menu" aria-labelledby="dropdownCarrito"><div class="card" style="width: 18rem;"><div class="card-header">Carrito de compras</div><ul class="list-group list-group-flush">'+ productos +'</ul><div class="card-footer text-muted"><center><button class="btn btn-success">Comprar</button></center></div></div></div>'
                 }
                 else
                   document.getElementById('tag').innerHTML = '<a href="/signin">Sing in</a><a href="">/</a><a href="/login">Log in</a>'
