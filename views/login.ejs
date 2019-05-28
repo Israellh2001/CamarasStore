@@ -35,6 +35,12 @@
             if (Nombre == "admin" && Contraseña == "1234" || Nombre == "admin2" && Contraseña == "1234") {
               localStorage.setItem('user', "admin")
               localStorage.setItem('pass',  "1234")
+              localStorage.setItem('Usuario', JSON.stringify({
+                Nombre: "admin",
+                Contraseña: "1234",
+                Carrio: {},
+                Compras: {}
+              }))
               location.href = "/admin"
             }
             else {
