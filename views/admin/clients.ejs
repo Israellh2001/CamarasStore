@@ -54,30 +54,14 @@
                             <label for="Telefono">Telefono</label>
                             <input type="text" class="form-control" id="Telefono" placeholder="(449) 123 1234" name="Telefono" >
 
-                            <label for="Turno">Turno</label>
-                            <select id="Turno" class="form-control" name="Turno">
-                                <option selected>Selecciona...</option>
-                                <option>Matutino</option>
-                                <option>Vespertino</option>
-                            </select>
-                            <br>
-                            <label for="Fecha_Ingreso">Fecha de ingreso</label>
-                            <input id="Fecha_Ingreso" class="form-control" type="date" name="Fecha_Ingreso">
-
+                            
                         </div>
                         <div class="form-group">
                           <label for="Edad">Edad</label>
                           <input type="text" class="form-control" id="Edad" placeholder="" name="Edad">
                       </div>
                         <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label for="Cargo_Area">Cargo-Area</label>
-                                <input type="text" class="form-control" id="Cargo_Area" name="Cargo_Area">
-                            </div>
-                            <div class="form-group col-md-2">
-                                <label for="Sueldo">Sueldo</label>
-                                <input type="text" class="form-control" id="Sueldo" name="Sueldo">
-                            </div>
+                           
                             <div class="form-group col-md-4">
                                 <label for="Sexo">Sexo</label>
                                 <select id="Sexo" class="form-control" name="Sexo">
@@ -107,7 +91,7 @@
           var xhttp = new XMLHttpRequest()
               xhttp.open("POST", "/admin/cliente/update", true);
               xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-              xhttp.send("_id="+ id +"&Nombre="+ document.getElementById("Nombre").value +"&Contraseña="+ document.getElementById("Contraseña").value +"&Email="+ document.getElementById("Email").value+"&Direccion="+ document.getElementById("Direccion").value +"&Telefono="+document.getElementById("Telefono").value+"&Turno="+ document.getElementById("Turno").value +"&Fecha_Ingreso="+ document.getElementById("Fecha_Ingreso").value +"&Edad="+ document.getElementById("Edad").value +"&Cargo_Area="+ document.getElementById("Cargo_Area").value +"&Sueldo="+ document.getElementById("Sueldo").value +"&Sexo="+ document.getElementById("Sexo").value );
+              xhttp.send("_id="+ id +"&Nombre="+ document.getElementById("Nombre").value +"&Contraseña="+ document.getElementById("Contraseña").value +"&Email="+ document.getElementById("Email").value+"&Direccion="+ document.getElementById("Direccion").value +"&Telefono="+document.getElementById("Telefono").value+"&Edad="+ document.getElementById("Edad").value +"&Sexo="+ document.getElementById("Sexo").value );
               xhttp.abort()
 
               location.href = "/admin/clients"
@@ -121,11 +105,7 @@
             document.getElementById("Email").value = User.Email
             document.getElementById("Direccion").value = User.Direccion
             document.getElementById("Telefono").value = User.Telefono
-            document.getElementById("Turno").value = User.Turno
-            document.getElementById("Fecha_Ingreso").value = User.Fecha_Ingreso
             document.getElementById("Edad").value = User.Edad
-            document.getElementById("Cargo_Area").value = User.Cargo_Area
-            document.getElementById("Sueldo").value = User.Sueldo
             document.getElementById("Sexo").value = User.Sexo
           }
 
@@ -135,22 +115,18 @@
           bootstrapValidate("#Email", 'email:Ingresa un email valido',  function(valid){isValid[1] = valid})
           bootstrapValidate("#Telefono", 'integer:Solo numeros',  function(valid){isValid[2] = valid})
           bootstrapValidate("#Telefono", 'max:10:Maximo 10 digitos',  function(valid){isValid[3] = valid})
-          bootstrapValidate("#Turno", 'required:Te falto este',  function(valid){isValid[4] = valid})
-          bootstrapValidate("#Fecha_Ingreso", 'required:Te falto este',  function(valid){isValid[5] = valid})
-          bootstrapValidate("#Cargo_Area", 'required:Te falto este',  function(valid){isValid[6] = valid})
-          bootstrapValidate("#Sueldo", 'required:Te falto este',  function(valid){isValid[7] = valid})
           bootstrapValidate("#Sexo", 'required:Te falto este',  function(valid){isValid[8] = valid})
           bootstrapValidate("#Direccion", 'required:Te falto este',  function(valid){isValid[9] = valid})
           bootstrapValidate("#Contraseña", 'required:Te falto este',  function(valid){isValid[10] = valid})
           bootstrapValidate("#Edad", 'required:Te falto este',  function(valid){isValid[11] = valid})
 
           function agregar(){
-            if(isValid[0] && isValid[1] && isValid[2] && isValid[3] && isValid[4] && isValid[5] && isValid[6] && isValid[7] && isValid[8] && isValid[9] && isValid[10] && isValid[11])
+            if(isValid[0] && isValid[1] && isValid[2] && isValid[3] && isValid[8] && isValid[9] && isValid[10] && isValid[11])
             {
               var xhttp = new XMLHttpRequest()
               xhttp.open("POST", "/admin/cliente", true);
               xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-              xhttp.send("Nombre="+ document.getElementById("Nombre").value +"&Contraseña="+ document.getElementById("Contraseña").value +"&Email="+ document.getElementById("Email").value+"&Direccion="+ document.getElementById("Direccion").value +"&Telefono="+document.getElementById("Telefono").value+"&Turno="+ document.getElementById("Turno").value +"&Fecha_Ingreso="+ document.getElementById("Fecha_Ingreso").value +"&Edad="+ document.getElementById("Edad").value +"&Cargo_Area="+ document.getElementById("Cargo_Area").value +"&Sueldo="+ document.getElementById("Sueldo").value +"&Sexo="+ document.getElementById("Sexo").value );
+              xhttp.send("Nombre="+ document.getElementById("Nombre").value +"&Contraseña="+ document.getElementById("Contraseña").value +"&Email="+ document.getElementById("Email").value+"&Direccion="+ document.getElementById("Direccion").value +"&Telefono="+document.getElementById("Telefono").value+"&Edad="+ document.getElementById("Edad").value +"&Sexo="+ document.getElementById("Sexo").value );
               xhttp.abort()
 
               location.href = "/admin/clients"
