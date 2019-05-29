@@ -6,7 +6,6 @@ html {
     margin: 0;
   }
   footer {
-    margin-top: 10em;
     background-color: black;
     width: 100%;
     height: 300px;
@@ -16,9 +15,73 @@ html {
 img{
   max-height: 20em ;
 }
-#carouselExampleIndicators{
-  margin: 1.5em 0em 10em 0em;
-}
 #cat .card{
   border: none;
 }
+#titulos{
+  background-color: aqua;
+  width: 100%;
+  height: 50px;
+  font-family: x-locale-heading-primary,zillaslab,Palatino,"Palatino Linotype",x-locale-heading-secondary,serif;
+  border-radius: 10px;
+}
+#linea{
+  background-color: darkslategray;
+  height: 5px;
+  
+}
+#misi{
+  font-family: x-locale-heading-primary,zillaslab,Palatino,"Palatino Linotype",x-locale-heading-secondary,serif;
+  font-size: 30px;
+  margin-left: 10px;
+}
+#mis{
+  background-color: #F1E4E2;
+  margin-left: 20px;
+  margin-right: 10px;
+  width: 45%;
+  border-bottom-left-radius: 10px;
+}
+#vis{
+  background-color: coral;
+  margin-left: 680px;
+  margin-right: 0px;
+  margin-top: -340px;
+  width: 45%;
+  border-bottom-left-radius: 10px;
+}
+#quien{
+  margin-left: 13px;
+}
+#uno{
+  margin-left: 10px;
+  margin-right: 3px;
+}
+#poli{
+  font-weight: bold;
+  margin-left: 15px;
+}
+#politicas{
+  background-color: #D8D8D8;
+  width:730px;
+  height:500px;
+  margin-left: 330px;
+  margin-right: 50px;
+  border-bottom-left-radius: 10px;
+}
+#terminos{
+   background-color: #D8D8D8;
+  width:730px;
+  height:2085px;
+  margin-left: 330px;
+  margin-right: 50px;
+  border-bottom-left-radius: 10px;
+}
+#pedido{
+  margin-left: 15px;
+}
+#term{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
