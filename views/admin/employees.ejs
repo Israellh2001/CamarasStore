@@ -108,11 +108,21 @@
           location.href = "/admin/empleado/delete/" + id
         }
         var editar = function(){
-          var xhttp = new XMLHttpRequest()
+          const url = "/admin/empleado/update"
+              const params = {
+                headers: {
+                  "Content-type": "application/x-www-form-urlencoded"
+                },
+                body: "_id="+ id +"&Nombre="+ document.getElementById("Nombre").value +"&Email="+ document.getElementById("Email").value+"&Direccion="+ document.getElementById("Direccion").value +"&Telefono="+document.getElementById("Telefono").value+"&Turno="+ document.getElementById("Turno").value +"&Fecha_Ingreso="+ document.getElementById("Fecha_Ingreso").value +"&Fecha_Nacimiento="+ document.getElementById("Fecha_Nacimiento").value +"&Cargo_Area="+ document.getElementById("Cargo_Area").value +"&Sueldo="+ document.getElementById("Sueldo").value +"&Sexo="+ document.getElementById("Sexo").value,
+                method: 'POST'
+              }
+              fetch(url, params)
+
+          /*var xhttp = new XMLHttpRequest()
               xhttp.open("POST", "/admin/empleado/update", true);
               xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
               xhttp.send("_id="+ id +"&Nombre="+ document.getElementById("Nombre").value +"&Email="+ document.getElementById("Email").value+"&Direccion="+ document.getElementById("Direccion").value +"&Telefono="+document.getElementById("Telefono").value+"&Turno="+ document.getElementById("Turno").value +"&Fecha_Ingreso="+ document.getElementById("Fecha_Ingreso").value +"&Fecha_Nacimiento="+ document.getElementById("Fecha_Nacimiento").value +"&Cargo_Area="+ document.getElementById("Cargo_Area").value +"&Sueldo="+ document.getElementById("Sueldo").value +"&Sexo="+ document.getElementById("Sexo").value );
-              xhttp.abort()
+              xhttp.abort()*/
 
               location.href = "/admin/employees"
               
@@ -148,11 +158,23 @@
           function agregar(){
             if(isValid[0] && isValid[1] && isValid[2] && isValid[3] && isValid[4] && isValid[5] && isValid[6] && isValid[7] && isValid[8] && isValid[9])
             {
-              var xhttp = new XMLHttpRequest()
+
+              const url = "/admin/empleado"
+              const params = {
+                headers: {
+                  "Content-type": "application/x-www-form-urlencoded"
+                },
+                body: "Nombre="+ document.getElementById("Nombre").value +"&Email="+ document.getElementById("Email").value+"&Direccion="+ document.getElementById("Direccion").value +"&Telefono="+document.getElementById("Telefono").value+"&Turno="+ document.getElementById("Turno").value +"&Fecha_Ingreso="+ document.getElementById("Fecha_Ingreso").value +"&Fecha_Nacimiento="+ document.getElementById("Fecha_Nacimiento").value +"&Cargo_Area="+ document.getElementById("Cargo_Area").value +"&Sueldo="+ document.getElementById("Sueldo").value +"&Sexo="+ document.getElementById("Sexo").value,
+                method: 'POST'
+              }
+              fetch(url, params)
+
+
+              /*var xhttp = new XMLHttpRequest()
               xhttp.open("POST", "/admin/empleado", true);
               xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
               xhttp.send("Nombre="+ document.getElementById("Nombre").value +"&Email="+ document.getElementById("Email").value+"&Direccion="+ document.getElementById("Direccion").value +"&Telefono="+document.getElementById("Telefono").value+"&Turno="+ document.getElementById("Turno").value +"&Fecha_Ingreso="+ document.getElementById("Fecha_Ingreso").value +"&Fecha_Nacimiento="+ document.getElementById("Fecha_Nacimiento").value +"&Cargo_Area="+ document.getElementById("Cargo_Area").value +"&Sueldo="+ document.getElementById("Sueldo").value +"&Sexo="+ document.getElementById("Sexo").value );
-              xhttp.abort()
+              xhttp.abort()*/
 
               location.href = "/admin/employees"
             }

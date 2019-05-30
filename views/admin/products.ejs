@@ -92,11 +92,22 @@
           }
 
          var editar = function(){
-           var xhttp = new XMLHttpRequest()
+          const url = "/admin/producto/update"
+              const params = {
+                headers: {
+                  "Content-type": "application/x-www-form-urlencoded"
+                },
+                body: "_id="+ id +"&Nombre="+ document.getElementById("Nombre").value +"&Marca="+ document.getElementById("Marca").value+"&Existencias="+ document.getElementById("Existencias").value +"&Precio_May="+document.getElementById("Precio_May").value+"&Precio_Min="+ document.getElementById("Precio_Min").value +"&Descripcion="+ document.getElementById("Descripcion").value +"&Tipo_Producto="+ document.getElementById("Tipo_Producto").value+"&urlImage="+ document.getElementById("urlImage").value,
+                method: 'POST'
+              }
+
+              fetch(url, params)
+
+           /*var xhttp = new XMLHttpRequest()
               xhttp.open("POST", "/admin/producto/update", true);
               xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
               xhttp.send("_id="+ id +"&Nombre="+ document.getElementById("Nombre").value +"&Marca="+ document.getElementById("Marca").value+"&Existencias="+ document.getElementById("Existencias").value +"&Precio_May="+document.getElementById("Precio_May").value+"&Precio_Min="+ document.getElementById("Precio_Min").value +"&Descripcion="+ document.getElementById("Descripcion").value +"&Tipo_Producto="+ document.getElementById("Tipo_Producto").value+"&urlImage="+ document.getElementById("urlImage").value);
-              xhttp.abort()
+              xhttp.abort()*/
 
               location.href = "/admin/products"
               
@@ -130,11 +141,22 @@
           function agregar(){
             if(isValid[0] && isValid[1] && isValid[2] && isValid[3] && isValid[4] && isValid[5] && isValid[6])
             {
-              var xhttp = new XMLHttpRequest()
+              const url = "/admin/producto"
+              const params = {
+                headers: {
+                  "Content-type": "application/x-www-form-urlencoded"
+                },
+                body:"Nombre="+ document.getElementById("Nombre").value +"&Marca="+ document.getElementById("Marca").value+"&Existencias="+ document.getElementById("Existencias").value +"&Precio_May="+document.getElementById("Precio_May").value+"&Precio_Min="+ document.getElementById("Precio_Min").value +"&Descripcion="+ document.getElementById("Descripcion").value +"&Tipo_Producto="+ document.getElementById("Tipo_Producto").value+"&urlImage="+ document.getElementById("urlImage").value,
+                method: 'POST'
+              }
+
+              fetch(url, params)
+
+              /*var xhttp = new XMLHttpRequest()
               xhttp.open("POST", "/admin/producto", true);
               xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
               xhttp.send("Nombre="+ document.getElementById("Nombre").value +"&Marca="+ document.getElementById("Marca").value+"&Existencias="+ document.getElementById("Existencias").value +"&Precio_May="+document.getElementById("Precio_May").value+"&Precio_Min="+ document.getElementById("Precio_Min").value +"&Descripcion="+ document.getElementById("Descripcion").value +"&Tipo_Producto="+ document.getElementById("Tipo_Producto").value+"&urlImage="+ document.getElementById("urlImage").value);
-              xhttp.abort()
+              xhttp.abort()*/
 
               location.href = "/admin/products"
             }

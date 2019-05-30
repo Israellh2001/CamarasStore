@@ -88,11 +88,19 @@
           location.href = "/admin/cliente/delete/" + id
         }
         var editar = function(){
-          var xhttp = new XMLHttpRequest()
+          fetch("/admin/cliente/update", {
+            headers: {
+                  "Content-type": "application/x-www-form-urlencoded"
+                },
+                body: "_id="+ id +"&Nombre="+ document.getElementById("Nombre").value +"&Contraseña="+ document.getElementById("Contraseña").value +"&Email="+ document.getElementById("Email").value+"&Direccion="+ document.getElementById("Direccion").value +"&Telefono="+document.getElementById("Telefono").value+"&Edad="+ document.getElementById("Edad").value +"&Sexo="+ document.getElementById("Sexo").value,
+                method: "POST"
+              })
+
+          /*var xhttp = new XMLHttpRequest()
               xhttp.open("POST", "/admin/cliente/update", true);
               xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
               xhttp.send("_id="+ id +"&Nombre="+ document.getElementById("Nombre").value +"&Contraseña="+ document.getElementById("Contraseña").value +"&Email="+ document.getElementById("Email").value+"&Direccion="+ document.getElementById("Direccion").value +"&Telefono="+document.getElementById("Telefono").value+"&Edad="+ document.getElementById("Edad").value +"&Sexo="+ document.getElementById("Sexo").value );
-              xhttp.abort()
+              xhttp.abort()*/
 
               location.href = "/admin/clients"
               
@@ -123,11 +131,19 @@
           function agregar(){
             if(isValid[0] && isValid[1] && isValid[2] && isValid[3] && isValid[8] && isValid[9] && isValid[10] && isValid[11])
             {
-              var xhttp = new XMLHttpRequest()
+              fetch("/admin/cliente", {
+                headers: {
+                  "Content-type": "application/x-www-form-urlencoded"
+                },
+                body: "Nombre="+ document.getElementById("Nombre").value +"&Contraseña="+ document.getElementById("Contraseña").value +"&Email="+ document.getElementById("Email").value+"&Direccion="+ document.getElementById("Direccion").value +"&Telefono="+document.getElementById("Telefono").value+"&Edad="+ document.getElementById("Edad").value +"&Sexo="+ document.getElementById("Sexo").value,
+                method: "POST"
+              })
+
+              /*var xhttp = new XMLHttpRequest()
               xhttp.open("POST", "/admin/cliente", true);
               xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
               xhttp.send("Nombre="+ document.getElementById("Nombre").value +"&Contraseña="+ document.getElementById("Contraseña").value +"&Email="+ document.getElementById("Email").value+"&Direccion="+ document.getElementById("Direccion").value +"&Telefono="+document.getElementById("Telefono").value+"&Edad="+ document.getElementById("Edad").value +"&Sexo="+ document.getElementById("Sexo").value );
-              xhttp.abort()
+              xhttp.abort()*/
 
               location.href = "/admin/clients"
             }

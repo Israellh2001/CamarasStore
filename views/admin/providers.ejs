@@ -87,11 +87,23 @@
           location.href = "/admin/proveedor/delete/" + id
         }
         var editar = function(){
-          var xhttp = new XMLHttpRequest()
+          const url = "/admin/proveedor/update"
+              const params = {
+                headers: {
+                  "Content-type": "application/x-www-form-urlencoded"
+                },
+                body: "_id="+ id +"&Nombre="+ document.getElementById("Nombre").value+ "&Empresa="+ document.getElementById("Empresa").value +"&Email="+ document.getElementById("Email").value+"&Direccion="+ document.getElementById("Direccion").value +"&Telefono="+document.getElementById("Telefono").value +"&Fecha_Surte="+ document.getElementById("Fecha_Surte").value +"&Tipo_Producto="+ document.getElementById("Tipo_Producto").value +"&Marca="+ document.getElementById("Marca").value,
+                method: 'POST'
+              }
+
+              fetch(url, params)
+            
+
+          /*var xhttp = new XMLHttpRequest()
               xhttp.open("POST", "/admin/proveedor/update", true);
               xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
               xhttp.send("_id="+ id +"&Nombre="+ document.getElementById("Nombre").value+ "&Empresa="+ document.getElementById("Empresa").value +"&Email="+ document.getElementById("Email").value+"&Direccion="+ document.getElementById("Direccion").value +"&Telefono="+document.getElementById("Telefono").value +"&Fecha_Surte="+ document.getElementById("Fecha_Surte").value +"&Tipo_Producto="+ document.getElementById("Tipo_Producto").value +"&Marca="+ document.getElementById("Marca").value);
-              xhttp.abort()
+              xhttp.abort()*/
 
               location.href = "/admin/providers"
               
@@ -124,11 +136,23 @@
           function agregar(){
             if(isValid[0] && isValid[1] && isValid[2] && isValid[3] && isValid[4] && isValid[5] && isValid[6] && isValid[7])
             {
-              var xhttp = new XMLHttpRequest()
+              const url = "/admin/proveedor"
+              const params = {
+                headers: {
+                  "Content-type": "application/x-www-form-urlencoded"
+                },
+                body: "Nombre="+ document.getElementById("Nombre").value+ "&Empresa="+ document.getElementById("Empresa").value +"&Email="+ document.getElementById("Email").value+"&Direccion="+ document.getElementById("Direccion").value +"&Telefono="+document.getElementById("Telefono").value +"&Fecha_Surte="+ document.getElementById("Fecha_Surte").value +"&Tipo_Producto="+ document.getElementById("Tipo_Producto").value +"&Marca="+ document.getElementById("Marca").value,
+                method: 'POST'
+              }
+
+              fetch(url, params)
+              
+
+              /*var xhttp = new XMLHttpRequest()
               xhttp.open("POST", "/admin/proveedor", true);
               xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
               xhttp.send("Nombre="+ document.getElementById("Nombre").value+ "&Empresa="+ document.getElementById("Empresa").value +"&Email="+ document.getElementById("Email").value+"&Direccion="+ document.getElementById("Direccion").value +"&Telefono="+document.getElementById("Telefono").value +"&Fecha_Surte="+ document.getElementById("Fecha_Surte").value +"&Tipo_Producto="+ document.getElementById("Tipo_Producto").value +"&Marca="+ document.getElementById("Marca").value);
-              xhttp.abort()
+              xhttp.abort()*/
 
               location.href = "/admin/providers"
             }
