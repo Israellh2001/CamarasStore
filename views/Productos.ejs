@@ -1,0 +1,51 @@
+<% include partials/header.ejs%>
+    <br><br>
+    <div class="container" style="margin: 0;">
+        <div class="row justify-content-around">
+            <!-- <div class="col-sm-2">
+                    <div class="nav flex-column nav-pills"  role="tablist" aria-orientation="vertical">
+                            <a class="nav-link active"  data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
+                            <a class="nav-link"  data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Profile</a>
+                            <a class="nav-link"  data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Messages</a>
+                            <a class="nav-link"  data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Settings</a>
+                          </div>
+            </div> -->
+            <!-- <div class="col-sm-8"> -->
+                <% for (var i = 0; i < productos.length; i++ ){ %>
+                    <div class="card" style="width: 18rem; float: left; margin-left: 5em; margin-bottom: 3em;" >
+                        <br>
+                            <% if(productos[i].urlImage != null){ %>
+                            <center><img class="card-img-top" style="width: 8em;" src="<%- productos[i].urlImage %>" alt="Card image cap"></center>
+                            <% }else{ %>
+                            <center><img class="card-img-top" style="width: 8em;" src="/img/notIMG.png" alt="Card image cap"></center>
+                            <% } %>
+                        <br>
+                            <div class="card-body">
+                                <h5 class="card-title"><%= productos[i].Nombre %></h5>
+                                <h6 class="card-subtitle"><%= productos[i].Precio_Min %></h6>
+                                <p class="card-text"><%= productos[i].Descripcion %></p>
+                            </div>
+                            <div class="card-footer text-muted">
+                                <button class="btn btn-primary" onclick='añadir( <%- JSON.stringify(productos[i]) %>)' >Añadir al carrito</button>
+                            </div>
+                        </div>
+                <% } %>
+            </div>
+        <!-- <div class="col-sm-8"> -->
+    </div>
+
+    <script>
+
+        function añadir(producto){
+
+            usuario = JSON.parse(localStorage.getItem('Usuario')) 
+            usuario.Carrio.push(producto)
+
+            localStorage.setItem('Usuario', JSON.stringify(usuario))
+
+            location.reload()
+        }
+    </script>
+
+
+<% include partials/footer.ejs%>

@@ -65,8 +65,8 @@
                   var lista = JSON.parse(localStorage.getItem('Usuario'))
                   
                   for(var i = 0; i< lista.Carrio.length; i++){
-                    total = total + lista.Carrio[i].Precio
-                    productos = productos + '<li class="list-group-item">'+ lista.Carrio[i].Nombre+'  ' + lista.Carrio[i].Precio + '$</li>'
+                    total = total + lista.Carrio[i].Precio_Min
+                    productos = productos + '<li class="list-group-item">'+ lista.Carrio[i].Nombre+'  ' + lista.Carrio[i].Precio_Min + '$</li>'
                 }
 
                 productos = productos + '<li class="list-group-item">Subtotal: '+total+'$</li>'
@@ -97,10 +97,12 @@
               <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Camaras</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Lentes</a>
+              <a class="dropdown-item" href="/Productos/Camara">Camras en venta</a>
+              <a class="dropdown-item" href="/Productos/Lentes">Lentes</a>
+              <a class="dropdown-item" href="/Productos/Tripies">Tripies</a>
             </div>
           <li class="nav-item">
-            <a class="nav-link " href="#" role="button" aria-haspopup="true" aria-expanded="false">Accesorios</a>
+            <a class="nav-link " href="/Productos/Accesorios" role="button" aria-haspopup="true" aria-expanded="false">Accesorios</a>
           </li>
           <div id="menuAdmin"></div>
 

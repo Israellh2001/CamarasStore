@@ -8,7 +8,8 @@ const productoSchema = new Schema({
   Existencias: Number,
   Precio_May: Number,
   Precio_Min: Number,
-  Tipo_Producto: String
+  Tipo_Producto: String,
+  urlImage: String
 })
 
 module.exports = mongoose.model('producto', productoSchema);

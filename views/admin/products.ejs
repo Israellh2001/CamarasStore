@@ -14,7 +14,6 @@
                         <th scope="col">#</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Marca</th>
-                        <th scope="col">Existencias</th>
                         <th scope="col">Tipo de producto</th>
                       </tr>
                     </thead>
@@ -24,7 +23,6 @@
                           <td><%= i+1 %></td>
                           <td><%= rows[i].Nombre %></td>
                           <td><%= rows[i].Marca %></td>
-                          <td><%= rows[i].Existencias %></td>
                           <td><%= rows[i].Tipo_Producto %></td>
 
                         </tr>
@@ -49,9 +47,19 @@
                         <input type="text" class="form-control" id="Descripcion" placeholder="Camara de video 4k..." name="Descripcion">
                         </div>
                         <div class="form-group">
-                        <label for="Tipo_Producto">Tipo de producto</label>
-                        <input type="text" class="form-control" id="Tipo_Producto" placeholder="Camara, tripode, etc." name="Tipo_Producto">
+                        <label for="urlImage">Url de la imagen</label>
+                        <input type="text" class="form-control" id="urlImage" placeholder="http://.../...png" name="urlImage">
                         </div>
+                        <div class="form-group col-md-4">
+                                <label for="Tipo_Producto">Tipo de producto</label>
+                                <select id="Tipo_Producto" class="form-control" name="Tipo_Producto">
+                                <option selected>Choose...</option>
+                                <option>Camara</option>
+                                <option>Lentes</option>
+                                <option>Tripies</option>
+                                <option>Accesorios</option>
+                                </select>
+                            </div>
                         <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="Precio_May">Precio mayoreo</label>
@@ -87,7 +95,7 @@
            var xhttp = new XMLHttpRequest()
               xhttp.open("POST", "/admin/producto/update", true);
               xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-              xhttp.send("_id="+ id +"&Nombre="+ document.getElementById("Nombre").value +"&Marca="+ document.getElementById("Marca").value+"&Existencias="+ document.getElementById("Existencias").value +"&Precio_May="+document.getElementById("Precio_May").value+"&Precio_Min="+ document.getElementById("Precio_Min").value +"&Descripcion="+ document.getElementById("Descripcion").value +"&Tipo_Producto="+ document.getElementById("Tipo_Producto").value);
+              xhttp.send("_id="+ id +"&Nombre="+ document.getElementById("Nombre").value +"&Marca="+ document.getElementById("Marca").value+"&Existencias="+ document.getElementById("Existencias").value +"&Precio_May="+document.getElementById("Precio_May").value+"&Precio_Min="+ document.getElementById("Precio_Min").value +"&Descripcion="+ document.getElementById("Descripcion").value +"&Tipo_Producto="+ document.getElementById("Tipo_Producto").value+"&urlImage="+ document.getElementById("urlImage").value);
               xhttp.abort()
 
               location.href = "/admin/products"
@@ -103,24 +111,29 @@
             document.getElementById("Precio_Min").value = User.Precio_Min
             document.getElementById("Descripcion").value = User.Descripcion
             document.getElementById("Tipo_Producto").value = User.Tipo_Producto
+            document.getElementById("urlImage").value = User.urlImage
+
           }
 
-           var isValid = []
 
+           var isValid = []
+ 
           bootstrapValidate("#Nombre", 'required:Te falto este', function(valid){isValid[0] = valid})
           bootstrapValidate("#Marca", 'required:Te falto este',  function(valid){isValid[1] = valid})
           bootstrapValidate("#Existencias", 'integer:Solo numeros',  function(valid){isValid[2] = valid})
           bootstrapValidate("#Precio_May", 'integer:Solo numeros',  function(valid){isValid[3] = valid})
           bootstrapValidate("#Precio_Min", 'integer:Solo numeros',  function(valid){isValid[4] = valid})
           bootstrapValidate("#Tipo_Producto", 'required:Te falto este',  function(valid){isValid[5] = valid})
+          bootstrapValidate("#urlImage", 'url:Usa un url valido',  function(valid){isValid[6] = valid})
+
 
           function agregar(){
-            if(isValid[0] && isValid[1] && isValid[2] && isValid[3] && isValid[4] && isValid[5])
+            if(isValid[0] && isValid[1] && isValid[2] && isValid[3] && isValid[4] && isValid[5] && isValid[6])
             {
               var xhttp = new XMLHttpRequest()
               xhttp.open("POST", "/admin/producto", true);
               xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-              xhttp.send("Nombre="+ document.getElementById("Nombre").value +"&Marca="+ document.getElementById("Marca").value+"&Existencias="+ document.getElementById("Existencias").value +"&Precio_May="+document.getElementById("Precio_May").value+"&Precio_Min="+ document.getElementById("Precio_Min").value +"&Descripcion="+ document.getElementById("Descripcion").value +"&Tipo_Producto="+ document.getElementById("Tipo_Producto").value);
+              xhttp.send("Nombre="+ document.getElementById("Nombre").value +"&Marca="+ document.getElementById("Marca").value+"&Existencias="+ document.getElementById("Existencias").value +"&Precio_May="+document.getElementById("Precio_May").value+"&Precio_Min="+ document.getElementById("Precio_Min").value +"&Descripcion="+ document.getElementById("Descripcion").value +"&Tipo_Producto="+ document.getElementById("Tipo_Producto").value+"&urlImage="+ document.getElementById("urlImage").value);
               xhttp.abort()
 
               location.href = "/admin/products"

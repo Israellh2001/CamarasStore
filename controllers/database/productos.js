@@ -51,10 +51,20 @@ const update = (req, res) => {
   )
 }
 
+const Productos  = (req, res) => {
+  let type = req.params.type
+  
+  producto.find({ Tipo_Producto: type }, (err, row) => {
+    productos = row
+    res.render('Productos', productos)
+  })
+}
+
 module.exports = {
   getProducto: getProducto,
   getProductos: getProductos,
   postProducto: postProducto,
   Delete: Delete,
-  updateProducto: update
+  updateProducto: update,
+  Productos: Productos
 }
