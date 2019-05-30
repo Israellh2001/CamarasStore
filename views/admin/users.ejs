@@ -52,38 +52,31 @@
         </div>
         <script type="text/javascript">
         var id = null
+
         var eliminar = function(){
           location.href = "/admin/usuario/delete/" + id
         }
+
+
         var editar = function(){
           const url = "/admin/usuario/update"
-          const data = {
-            Nombre: document.getElementById("Nombre").value,
-            Contraseña: document.getElementById("Contraseña").value
-          }
-
           const params = {
             headers: {
               "Content-type": "application/x-www-form-urlencoded"
             },
-            body: data,
+            body: "_id="+ id +"&Nombre="+ document.getElementById("Nombre").value +"&Contraseña="+ document.getElementById("Contraseña").value,
             method: "POST"
           }
 
-          fetch(url, params).catch(error=>console.log("nel"))
-          console.log("Chuido");
-          
-
-
+          fetch(url, params) //.then(function(res){algo})
+          location.href = "/admin/users"
 
           /*var xhttp = new XMLHttpRequest()
               xhttp.open("POST", "/admin/usuario/update", true);
               xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
               xhttp.send("_id="+ id +"&Nombre="+ document.getElementById("Nombre").value +"&Contraseña="+ document.getElementById("Contraseña").value);
-              xhttp.abort()
+              xhttp.abort()*/
 
-              location.href = "/admin/users"*/
-              
         }
 
           var selectCliente = function(User){
@@ -102,13 +95,24 @@
         function agregar(){
             if(isValid[0] && isValid[1])
             {
-              var xhttp = new XMLHttpRequest()
+              const url = "/admin/usuario"
+              const params = {
+                headers: {
+                  "Content-type": "application/x-www-form-urlencoded"
+                },
+                body: "Nombre="+ document.getElementById("Nombre").value +"&Contraseña="+ document.getElementById("Contraseña").value,
+                method: 'POST'
+              }
+
+              fetch(url, params)
+              location.href = "/admin/users"
+
+              /*var xhttp = new XMLHttpRequest()
               xhttp.open("POST", "/admin/usuario", true);
               xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
               xhttp.send("Nombre="+ document.getElementById("Nombre").value +"&Contraseña="+ document.getElementById("Contraseña").value);
-              xhttp.abort()
-              console.log("Simon")
-              //location.href = "/admin/users"
+              xhttp.abort()*/
+              
             }
             else
             Toast.fire({
