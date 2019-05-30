@@ -56,13 +56,33 @@
           location.href = "/admin/usuario/delete/" + id
         }
         var editar = function(){
-          var xhttp = new XMLHttpRequest()
+          const url = "/admin/usuario/update"
+          const data = {
+            Nombre: document.getElementById("Nombre").value,
+            Contraseña: document.getElementById("Contraseña").value
+          }
+
+          const params = {
+            headers: {
+              "Content-type": "application/x-www-form-urlencoded"
+            },
+            body: data,
+            method: "POST"
+          }
+
+          fetch(url, params).catch(error=>console.log("nel"))
+          console.log("Chuido");
+          
+
+
+
+          /*var xhttp = new XMLHttpRequest()
               xhttp.open("POST", "/admin/usuario/update", true);
               xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
               xhttp.send("_id="+ id +"&Nombre="+ document.getElementById("Nombre").value +"&Contraseña="+ document.getElementById("Contraseña").value);
               xhttp.abort()
 
-              location.href = "/admin/users"
+              location.href = "/admin/users"*/
               
         }
 
@@ -87,8 +107,8 @@
               xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
               xhttp.send("Nombre="+ document.getElementById("Nombre").value +"&Contraseña="+ document.getElementById("Contraseña").value);
               xhttp.abort()
-
-              location.href = "/admin/users"
+              console.log("Simon")
+              //location.href = "/admin/users"
             }
             else
             Toast.fire({
