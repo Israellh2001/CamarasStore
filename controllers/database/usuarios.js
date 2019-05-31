@@ -71,8 +71,8 @@ const update = (req, res) => {
 
 const addProducto = (req, res) => {
   let body = req.body
-
-  usuario.findOneAndUpdate({'_id': id}, {$push: { Carrito: body }}, {new: true}, (err) => {
+  
+  usuario.findOneAndUpdate({'_id': body._id}, body , {new: true}, (err) => {
       if (err)
         console.log("nel prros")
     }
