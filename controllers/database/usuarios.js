@@ -70,7 +70,6 @@ const update = (req, res) => {
 }
 
 const addProducto = (req, res) => {
-  let id = req.params.id
   let body = req.body
 
   usuario.findOneAndUpdate({'_id': id}, {$push: { Carrito: body }}, {new: true}, (err) => {

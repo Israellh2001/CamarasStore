@@ -56,7 +56,7 @@
                     <center><button class="btn btn-success">Comprar</button></center>
                 </div>
                 </div>
-              </div> -->
+              </div>            -->
 
               <script>
                 if(localStorage.getItem('user') != null){
@@ -66,21 +66,26 @@
                   
                   for(var i = 0; i< lista.Carrio.length; i++){
                     total = total + lista.Carrio[i].Precio_Min
-                    productos = productos + '<li class="list-group-item">'+ lista.Carrio[i].Nombre+'  ' + lista.Carrio[i].Precio_Min + '$</li>'
-                }
+                    productos = productos + '<li><span class="item"><span class="item-left"><span class="item-info"><span>' + lista.Carrio[i].Nombre + '</span><span>'+ lista.Carrio[i].Precio_Min +' $</span></span></span><span class="item-right"><a onclick="eliminar('+ i +')" >X</a></span></span></li>'
+                  }
 
-                productos = productos + '<li class="list-group-item">Subtotal: '+total+'$</li>'
-
-                  
-
-
+                  productos = productos + '<li class="list-group-item">Subtotal: '+total+'$</li>'
                   document.getElementById('tag').innerHTML = '<div class="dropdown"><a class="dropdown-toggle" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-2x"></i></a><div class="dropdown-menu" aria-labelledby="dropdownUser"><a class="dropdown-item" href="#">Ver perfil</a><a class="dropdown-item" href="#">Editar Perfil</a><a class="dropdown-item" onclick="logout()">Cerrar sesion</a></div></div>'
-                  document.getElementById('tag1').innerHTML = '<div class="dropdown"><a class="dropdown-toggle" id="dropdownCarrito" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-shopping-cart fa-2x"></i></a><div class="dropdown-menu" aria-labelledby="dropdownCarrito"><div class="card" style="width: 18rem;"><div class="card-header">Carrito de compras</div><ul class="list-group list-group-flush">'+ productos +'</ul><div class="card-footer text-muted"><center><button class="btn btn-success">Comprar</button></center></div></div></div>'
+
+
+                  document.getElementById('tag1').innerHTML = '<div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fas fa-shopping-cart fa-2x"></i></a><ul class="dropdown-menu dropdown-cart" role="menu">'+ productos +'<li class="divider"></li> <br> <center><a class="text-center" href="">Ver carrito</a></center> </ul></div>'
                 }
                 else
                   document.getElementById('tag').innerHTML = '<a href="/signin">Sing in</a><a href="">/</a><a href="/login">Log in</a>'
 
-              </script>
+
+                function eliminar(i) {
+                  var lista = JSON.parse(localStorage.getItem('Usuario'))
+                  lista.Carrio.splice(i, 1)
+                  localStorage.setItem('Usuario', JSON.stringify(lista))
+                  location.reload()
+                }
+              </script>              
 
                 <input style="margin-left: 0.5em" class="form-control mr-sm-2" type="search" placeholder="Camaras, lentes, tripies" aria-label="Search">
                 <a href=""><i class="fas fa-search"></i></a>
@@ -114,6 +119,9 @@
         </ul>
 <script>
   function logout(){
+    
+
+
     localStorage.clear()
     location.href = "/"
   }

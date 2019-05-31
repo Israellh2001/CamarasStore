@@ -42,7 +42,7 @@ router.post('/usuario', usuarioControllers.postUsuario)
 router.get('/usuario/delete/:id', usuarioControllers.Delete)
 router.get('/api/login/:name/:pass', usuarioControllers.Login)
 router.post('/usuario/update', usuarioControllers.updateUsuario)
-router.post('/usuario/producto/:id', usuarioControllers.addProducto)
+router.post('/usuario/cart', usuarioControllers.addProducto)
 
 
 module.exports = router
