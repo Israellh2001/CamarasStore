@@ -1,0 +1,79 @@
+<% include ../partials/header.ejs %>
+
+<div class="container" style="margin-top: 2em; margin-bottom: 2em;">
+    <div class="row">
+        <div class="card col" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Llena los datos</h5>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                        <label for="inputCity">Cliente</label>
+                        <input type="text" class="form-control" id="inputCity">
+                        </div>
+                        <div class="form-group col-md-6">
+                        <label for="inputState">Empleado</label>
+                        <select id="inputState" class="form-control">
+                            <option selected>Choose...</option>
+                            <option>...</option>
+                        </select>
+                        </div>
+                    </div>
+                    <center><button type="submit" class="btn btn-primary">Confirmar</button></center>
+                </form>    
+            </div>
+        </div>
+    </div> <br><br>
+    <div class="row">
+        <div class="card col" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Agrega productos</h5>
+                <form class="form-inline">
+                    <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref">
+                        <option selected>Choose...</option>
+                        <option value="1">Camra full HD - 250$</option>
+                        <option value="2">Tripie prron - 500$</option>
+                        <option value="3">Lente de 40mm - 1000$</option>
+                    </select>                        
+                </form>
+            </div>
+            <div class="card-footer">
+                    <center><button type="submit" class="btn btn-primary my-1">Agregar</button></center>
+            </div>
+        </div>
+        <div class="card col" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Registrar la compra</h5>
+            </div>
+        </div>
+    </div> <br><br>
+    <div class="row">
+        <div class="card col" style="width: 18rem;">
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Marca</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <th scope="row">1</th>
+                        <td>Camara</td>
+                        <td>Cannon</td>
+                        <td>150$</td>
+                        <td><i class="fas fa-trash-alt fa-lg" style="color: red"></i></td>
+                        </tr>
+                    </tbody>
+                </table>    
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>
+

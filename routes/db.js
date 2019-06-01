@@ -6,6 +6,7 @@ const empleadoControllers = require('../controllers/database/empleados');
 const productoControllers = require('../controllers/database/productos');
 const proveedorControllers = require('../controllers/database/proveedores');
 const usuarioControllers = require('../controllers/database/usuarios');
+const ventasControllers = require('../controllers/database/ventas')
 
 
 
@@ -43,6 +44,9 @@ router.get('/usuario/delete/:id', usuarioControllers.Delete)
 router.get('/api/login/:name/:pass', usuarioControllers.Login)
 router.post('/usuario/update', usuarioControllers.updateUsuario)
 router.post('/usuario/cart', usuarioControllers.addProducto)
+
+router.get('/ventas', ventasControllers.getVenta)
+router.post('/ventas', ventasControllers.postVenta)
 
 
 module.exports = router
