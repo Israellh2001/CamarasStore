@@ -11,6 +11,7 @@ const ventasControllers = require('../controllers/database/ventas')
 
 
 router.get('/api/cliente/:name/:pass', clienteControllers.getCliente)
+router.get('/api/cliente/:name', clienteControllers.getClienteByName)
 router.get('/clients', clienteControllers.getClientes)
 router.post('/cliente', clienteControllers.postCliente)
 router.get('/cliente/delete/:id', clienteControllers.Delete)

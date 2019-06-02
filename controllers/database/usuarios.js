@@ -1,7 +1,7 @@
 const usuario = require('../../models/usuario')
 
 const getUsuario = async (req, res) => {
-  var id = req.params
+  var id = req.params.id
   var row = await usuario.findById(id)
   res.json(row)
 }

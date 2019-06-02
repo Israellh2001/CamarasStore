@@ -56,10 +56,27 @@ const update = (req, res) => {
     }
   )
 }
+
+const getClienteByName = async (req, res) => {
+  let name = req.params.name
+  cliente.findOne({Nombre: name}, (err, row) => {
+    if (row) {
+        res.status(200).json({
+          success: true, row
+        })
+    }else {
+      res.status(500).json({
+        success: false
+      })
+    }
+  })
+}
+
 module.exports = {
   getCliente: getCliente,
   getClientes: getClientes,
   postCliente: postCliente,
   Delete: Delete,
-  updateCliente: update
+  updateCliente: update,
+  getClienteByName: getClienteByName
 }

@@ -1,9 +1,18 @@
 const producto = require('../../models/producto')
 
-const getProducto = async (req, res) => {
-  var id = req.params
-  var row = await producto.findById(id)
-  res.json(row)
+const getProducto = (req, res) => {
+  let id = req.params.id
+  producto.findOne({_id: id}, (err, row) => {
+    if (row) {
+        res.status(200).json({
+          success: true, row
+        })
+    }else {
+      res.status(500).json({
+        success: false
+      })
+    }
+  })
 }
 
 const getProductos = async (req, res) =>
