@@ -33,7 +33,7 @@
     </script>
         <!-- Header -->
         <nav class="navbar navbar-light bg-light" style="padding: 1em">
-          <a class="navbar-brand">Encuentranos <i class="fas fa-map-marker-alt"></i></a>
+          <a class="navbar-brand" href="https://www.google.com.mx/maps/place/C.E.T.i.s.+No.+155+%22Josefa+Ortiz+de+Dominguez%22/@21.8688772,-102.2713347,18z/data=!4m5!3m4!1s0x8429ede3d3afee29:0xca4d5899cecc07aa!8m2!3d21.8693309!4d-102.2714811">Encuentranos <i class="fas fa-map-marker-alt"></i></a>
 
           <center><h3>Dedos tienda</h3></center>
           <form class="form-inline">
@@ -68,12 +68,13 @@
                     total = total + lista.Carrio[i].Precio_Min
                     productos = productos + '<li><span class="item"><span class="item-left"><span class="item-info"><span>' + lista.Carrio[i].Nombre + '</span><span>'+ lista.Carrio[i].Precio_Min +' $</span></span></span><span class="item-right"><a onclick="eliminar('+ i +')" >X</a></span></span></li>'
                   }
+                  localStorage.setItem('Total', total)
 
                   productos = productos + '<li class="list-group-item">Subtotal: '+total+'$</li>'
                   document.getElementById('tag').innerHTML = '<div class="dropdown"><a class="dropdown-toggle" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-2x"></i></a><div class="dropdown-menu" aria-labelledby="dropdownUser"><a class="dropdown-item" href="#">Ver perfil</a><a class="dropdown-item" href="#">Editar Perfil</a><a class="dropdown-item" onclick="logout()">Cerrar sesion</a></div></div>'
 
 
-                  document.getElementById('tag1').innerHTML = '<div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fas fa-shopping-cart fa-2x"></i></a><ul class="dropdown-menu dropdown-cart" role="menu">'+ productos +'<li class="divider"></li> <br> <center><a class="text-center" href="">Terminar compra</a></center> </ul></div>'
+                  document.getElementById('tag1').innerHTML = '<div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fas fa-shopping-cart fa-2x"></i></a><ul class="dropdown-menu dropdown-cart" role="menu">'+ productos +'<li class="divider"></li> <br> <center><button type="button" class="text-center" onclick="comprar()">Terminar compra</button></center></ul></div>'
                 }
                 else
                   document.getElementById('tag').innerHTML = '<a href="/signin">Sing in</a><a href="">/</a><a href="/login">Log in</a>'
@@ -132,5 +133,19 @@
 
     localStorage.clear()
     location.href = "/"
+  }
+
+  function comprar(){
+    var price = localStorage.getItem('Total')
+
+    fetch("/pay/"+price, {
+      method: "GET"
+      })
+    .then(function(response) {
+    return response.json();
+    })
+    .then(function(myJson) {
+      location.href = myJson.href
+    });
   }
 </script>
