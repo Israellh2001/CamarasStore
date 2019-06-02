@@ -53,7 +53,7 @@
             <div class="card-body">
                 <h5 class="card-title">Opciones</h5>
                 <center><button type="submit" class="btn btn-primary my-1">Ver ventas</button></center>
-                <center><button type="button" class="btn btn-primary my-1" onclick="agregarVenta()">Agregar ventas</button></center>
+                <center><button type="button" class="btn btn-primary my-1" onclick="verificarCliente()">Agregar ventas</button></center>
             </div>
         </div>
     </div> <br><br>
@@ -80,6 +80,7 @@
 
 <script>
     var i = 0
+    var verf = false
     var precio
     function agregarProducto(){
         var table = document.getElementById("productos")
@@ -116,13 +117,26 @@
         }).then(function(data) {
            if(data.success){
             localStorage.setItem('Cliente', JSON.stringify(data.row))
+            verf = true
            }
-           else
+           else{
+               verf = false
             Toast.fire({
                   type: 'error',
                   title: 'El cliente no existe'
             })
+        }
         })
+    }
+    function verificarCliente(){
+        if(!verf)
+            Toast.fire({
+                  type: 'error',
+                  title: 'Verfica que el cliente exista'
+            })
+        else{
+            agregarVenta()
+        }
     }
     function agregarVenta(){
         var emp = document.getElementById('empleado').value
