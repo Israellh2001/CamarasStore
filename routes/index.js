@@ -14,8 +14,8 @@ router.get('/pay/:price', (req, res) => {
             "payment_method": "paypal"
         },
         "redirect_urls": {
-            "return_url": "http://localhost:3000/",
-            "cancel_url": "http://localhost:3000/"
+            "return_url": "https://camaras-store.herokuapp.com/",
+            "cancel_url": "https://camaras-store.herokuapp.com/"
         },
         "transactions": [{
             "item_list": {
