@@ -48,6 +48,8 @@ router.post('/usuario/cart', usuarioControllers.addProducto)
 
 router.get('/ventas', ventasControllers.getVenta)
 router.post('/ventas', ventasControllers.postVenta)
+router.get('/allventas', ventasControllers.getallVenta)
+
 
 
 module.exports = router

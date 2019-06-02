@@ -14,8 +14,13 @@ const postVenta = (req, res) => {
         res.redirect('/admin/ventas')
       })
 }
+const getallVenta = async (req, res) => {
+    var x = await ventas.find()
+    res.json(x)
+}
 
 module.exports = {
     getVenta: getVenta,
+    getallVenta: getallVenta,
     postVenta: postVenta
 }

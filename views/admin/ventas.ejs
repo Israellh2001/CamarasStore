@@ -52,7 +52,7 @@
         <div class="card col" style="width: 18rem;">
             <div class="card-body">
                 <h5 class="card-title">Opciones</h5>
-                <center><button type="submit" class="btn btn-primary my-1">Ver ventas</button></center>
+                <center><button type="button" class="btn btn-primary my-1" onclick="verVentas()">Ver ventas</button></center>
                 <center><button type="button" class="btn btn-primary my-1" onclick="verificarCliente()">Agregar ventas</button></center>
             </div>
         </div>
@@ -81,7 +81,7 @@
 <script>
     var i = 0
     var verf = false
-    var precio
+    var precio = 0
     function agregarProducto(){
         var table = document.getElementById("productos")
         var id = document.getElementById("newProducto").value
@@ -97,7 +97,9 @@
             aux = JSON.parse(localStorage.getItem('Productos'))
             aux.push(data.row)
             localStorage.setItem('Productos', JSON.stringify(aux))
+            localStorage.setItem('Precio', precio)
         })
+        
     }
     function eliminar(i){
         $("#fila" + i).remove();
@@ -144,7 +146,7 @@
             Empleado: emp,
             Cliente: JSON.parse(localStorage.getItem('Cliente')),
             Productos: JSON.parse(localStorage.getItem('Productos')),
-            Precio: precio
+            Precio: localStorage.getItem('Precio')
         }
         const url = "/admin/ventas"
               const params = {
@@ -157,7 +159,43 @@
         fetch(url, params)
         location.href = "/admin/ventas"
     }
+
+    function verVentas(){
+        var ventas = ""
+        Swal.fire({
+            title: 'Ventas',
+            html:
+            '<table class="table">'+
+                '<thead>'+
+                    '<tr>'+
+                    '<th scope="col">Empleado</th>'+
+                    '<th scope="col">Cliente</th>'+
+                    '<th scope="col">Precio</th>'+
+                    '</tr>'+
+                '</thead>'+
+                '<tbody id="ventas">'+ 
+                '</tbody>'+
+            '</table>',
+            onOpen: () => {
+
+                fetch("/admin/allventas/", {
+                    method: "GET"
+                }).then(function(res){
+                    return res.json()
+                }).then(function(data) {                    
+                    for(var i = 0; i < data.length; i++){
+                        ventas = ventas + '<tr><td>'+data[i].Empleado+'</td><td>'+data[i].Cliente.Nombre+'</td><td>'+data[i].Precio+'</td></tr>'
+                    }
+                    document.getElementById("ventas").innerHTML = ventas
+                })
+
+
+            }
+        })
+    }
+
 </script>
+
 
 <% include ../partials/footer %>
 
