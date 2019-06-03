@@ -142,13 +142,14 @@
     lista.Carrio = []
     localStorage.setItem('Usuario', JSON.stringify(lista))
  
+    var user = JSON.parse(localStorage.getItem('Usuario'))
     fetch("/admin/usuario/cart", {
       headers: {
         "Content-type": "application/json"
       },
       body: JSON.stringify(user),
       method: "POST"
-    }
+    } );
 
     fetch("/pay/"+price, {
       method: "GET"
