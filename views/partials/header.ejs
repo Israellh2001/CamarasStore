@@ -86,7 +86,9 @@
                   localStorage.setItem('Usuario', JSON.stringify(lista))
                   location.reload()
                 }
-              </script>              
+              </script>           
+              <input style="margin-left: 0.5em" class="form-control mr-sm-2" type="search" placeholder="Camaras, lentes, tripies" aria-label="Search">
+                <a href=""><i class="fas fa-search"></i></a>   
             </form> 
         </nav>
             
@@ -144,6 +146,5 @@
     .then(function(myJson) {
       location.href = myJson.href
     });
-    localStorage.removeItem('Productos')
   }
 </script>
