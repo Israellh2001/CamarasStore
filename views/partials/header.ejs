@@ -35,7 +35,7 @@
         <nav class="navbar navbar-light bg-light" style="padding: 1em">
           <a class="navbar-brand" href="https://www.google.com.mx/maps/place/C.E.T.i.s.+No.+155+%22Josefa+Ortiz+de+Dominguez%22/@21.8688772,-102.2713347,18z/data=!4m5!3m4!1s0x8429ede3d3afee29:0xca4d5899cecc07aa!8m2!3d21.8693309!4d-102.2714811">Encuentranos <i class="fas fa-map-marker-alt"></i></a>
 
-          <center><h3>Dedos tienda</h3></center>
+          <center><h3>Insta Pix</h3></center>
           <form class="form-inline">
               <div id="tag1"></div>
               <div id="tag" style="margin-left: 1em;"></div>
@@ -71,7 +71,7 @@
                   localStorage.setItem('Total', total)
 
                   productos = productos + '<li class="list-group-item">Subtotal: '+total+'$</li>'
-                  document.getElementById('tag').innerHTML = '<div class="dropdown"><a class="dropdown-toggle" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-2x"></i></a><div class="dropdown-menu" aria-labelledby="dropdownUser"><a class="dropdown-item" href="#">Ver perfil</a><a class="dropdown-item" href="#">Editar Perfil</a><a class="dropdown-item" onclick="logout()">Cerrar sesion</a></div></div>'
+                  document.getElementById('tag').innerHTML = '<div class="dropdown"><a class="dropdown-toggle" id="dropdownUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-2x"></i></a><div class="dropdown-menu" aria-labelledby="dropdownUser"><a class="dropdown-item" onclick="logout()">Cerrar sesion</a></div></div>'
 
 
                   document.getElementById('tag1').innerHTML = '<div class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fas fa-shopping-cart fa-2x"></i></a><ul class="dropdown-menu dropdown-cart" role="menu">'+ productos +'<li class="divider"></li> <br> <center><button type="button" class="text-center" onclick="comprar()">Terminar compra</button></center></ul></div>'
@@ -87,9 +87,6 @@
                   location.reload()
                 }
               </script>              
-
-                <input style="margin-left: 0.5em" class="form-control mr-sm-2" type="search" placeholder="Camaras, lentes, tripies" aria-label="Search">
-                <a href=""><i class="fas fa-search"></i></a>
             </form> 
         </nav>
             
@@ -147,5 +144,6 @@
     .then(function(myJson) {
       location.href = myJson.href
     });
+    localStorage.removeItem('Productos')
   }
 </script>
