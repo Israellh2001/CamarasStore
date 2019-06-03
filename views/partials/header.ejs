@@ -137,6 +137,19 @@
   function comprar(){
     var price = localStorage.getItem('Total')
 
+    localStorage.removeItem('Total')
+    var lista = JSON.parse(localStorage.getItem('Usuario'))
+    lista.Carrio = []
+    localStorage.setItem('Usuario', JSON.stringify(lista))
+ 
+    fetch("/admin/usuario/cart", {
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(user),
+      method: "POST"
+    }
+
     fetch("/pay/"+price, {
       method: "GET"
       })
@@ -146,5 +159,6 @@
     .then(function(myJson) {
       location.href = myJson.href
     });
+
   }
 </script>
